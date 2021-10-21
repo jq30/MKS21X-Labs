@@ -3,12 +3,12 @@ public class Driver{
     Kitty a = new Kitty("Matcha", 3);
     //constructor that takes the name and age of the Kitty.
 
-    Kitty  b =  new Kitty();
+    Kitty b = new Kitty();
     //2nd constructor makes a Kitty named Mittens that is 2 years old
     //this constructor takes no parameters.
 
     System.out.println(a);
-    //should print The address. Later it will print "The amazing Katya."
+    //should print The address. Later it will print "The amazing Matcha."
 
     System.out.println(b);
     //should print The address. Later it will print "The amazing Mittens"
