@@ -4,7 +4,8 @@ public class Kitty {
   private String name;
 
   public Kitty() {
-
+    name = "Mittens";
+    age = 2;
   }
 
   public Kitty(String inputName, int inputAge) {
@@ -12,12 +13,12 @@ public class Kitty {
     age = inputAge;
   }
 
-  public static int getAge() {
-    return 0;
+  public int getAge() {
+    return age;
   }
 
-  public static String getName() {
-    return "";
+  public String getName() {
+    return name;
   }
 
   public static void makeOlder() {
@@ -27,6 +28,4 @@ public class Kitty {
   public static void changeName(String newName) {
 
   }
-
-
 }
