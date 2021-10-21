@@ -1,5 +1,4 @@
 public class Kitty {
-
   private int age;
   private String name;
 
@@ -21,11 +20,11 @@ public class Kitty {
     return name;
   }
 
-  public static void makeOlder() {
-
+  public void makeOlder() {
+    age++;
   }
 
-  public static void changeName(String newName) {
-
+  public void changeName(String newName) {
+    name = newName;
   }
 }
