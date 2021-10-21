@@ -1,6 +1,15 @@
 public class Kitty {
-  public void Kitty(String name, int age) {
 
+  private int age;
+  private String name;
+
+  public Kitty() {
+
+  }
+
+  public Kitty(String inputName, int inputAge) {
+    name = inputName;
+    age = inputAge;
   }
 
   public static int getAge() {
