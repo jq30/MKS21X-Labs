@@ -12,6 +12,7 @@ public class Kitty {
     age = inputAge;
   }
 
+
   public int getAge() {
     return age;
   }
@@ -19,6 +20,11 @@ public class Kitty {
   public String getName() {
     return name;
   }
+
+  public String toString() {
+    return "The amazing " + name;
+  }
+
 
   public void makeOlder() {
     age++;

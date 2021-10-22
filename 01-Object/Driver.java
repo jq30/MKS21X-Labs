@@ -28,5 +28,10 @@ public class Driver{
 
     System.out.println(b.getName() + " is " + b.getAge() + " years old.");
     //should print "Mittens is 2 years old."
+
+    System.out.println(a.toString());
+    //"The amazing Katya"
+    System.out.println(b.toString());
+    //"The amazing Mittens"
   }
 }
