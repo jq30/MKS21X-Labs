@@ -17,4 +17,14 @@ public class Triangle {
     double perimeter = Point.distance(v1, v2) + Point.distance(v2, v3) + Point.distance(v1, v3);
     return perimeter;
   }
+
+  public Point getVertex(int i) {
+    if (i == 1) {
+      return v1;
+    } else if (i == 2) {
+      return v2;
+    } else {
+      return v3;
+    }
+  }
 }
