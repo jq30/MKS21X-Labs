@@ -29,5 +29,15 @@ public class Demo{
     System.out.println(A.distanceTo(B)); //should return 5
     System.out.println(distance(A, C)); //should return 4
     System.out.println(Point.distance(B, C)); //should return 3
+
+    //a 1-1-sqrt(2) 45-45-90 triangle
+    Point D = new Point(0, 0);
+    Point E = new Point(1, 1);
+    Point F = new Point(1, 0);
+
+    //test cases go brrrr
+    System.out.println(A.distance(D, E)); //should return ~1.414
+    System.out.println(F.distance(F, E)); //should return 1
+    System.out.println(F.distanceTo(E)); //should return 1
   }
  }
