@@ -19,5 +19,15 @@ public class Demo{
     System.out.println(  P1.distanceTo(P2)); //call 3
     //This one is IMPLIED strongly. You cannot tell by the calling style alone,
     //but you can make an educated guess.
+
+    //this should make a 3-4-5 triangle
+    Point A = new Point(0, 4);
+    Point B = new Point(3, 0);
+    Point C = new Point(0, 0);
+
+    //more test cases
+    System.out.println(A.distanceTo(B)); //should return 5
+    System.out.println(distance(A, C)); //should return 4
+    System.out.println(Point.distance(B, C)) //should return 3
   }
  }
