@@ -28,6 +28,6 @@ public class Demo{
     //more test cases
     System.out.println(A.distanceTo(B)); //should return 5
     System.out.println(distance(A, C)); //should return 4
-    System.out.println(Point.distance(B, C)) //should return 3
+    System.out.println(Point.distance(B, C)); //should return 3
   }
  }
