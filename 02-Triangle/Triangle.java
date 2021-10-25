@@ -28,10 +28,10 @@ public class Triangle {
     Point vertex = getVertex(i);
     System.out.println(vertex);
     System.out.println(getVertex(i));
-    System.out.println(getVertex(i).toString());
+    System.out.println(getVertex(i).toStringx());
     vertex = p;
     System.out.println(vertex);
-    System.out.println(vertex.toString());
+    System.out.println(vertex.toStringx());
     System.out.println(getVertex(i));
   }
 }
