@@ -26,6 +26,12 @@ public class Triangle {
   public void setVertex(int i, Point p) {
     //copies address of old vertex over
     Point vertex = getVertex(i);
+    System.out.println(vertex);
+    System.out.println(getVertex(i));
+    System.out.println(getVertex(i).toString());
     vertex = p;
+    System.out.println(vertex);
+    System.out.println(vertex.toString());
+    System.out.println(getVertex(i));
   }
 }
