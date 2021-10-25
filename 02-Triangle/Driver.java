@@ -12,6 +12,10 @@ public class Driver {
 
     System.out.println(tri.toString());
     System.out.println(tri.getPerimeter());
+
+    Point newVertex = new Point(312, 12);
+    tri.setVertex(3, newVertex);
+
     System.out.println(tri.getVertex(1).toString());
     System.out.println(tri.getVertex(2).toString());
     System.out.println(tri.getVertex(3).toString());

@@ -22,4 +22,10 @@ public class Triangle {
     Point[] vertices = {v1, v2, v3};
     return vertices[i-1];
   }
+
+  public void setVertex(int i, Point p) {
+    //copies address of old vertex over
+    Point vertex = getVertex(i);
+    vertex = p;
+  }
 }
