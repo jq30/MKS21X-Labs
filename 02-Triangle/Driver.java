@@ -19,5 +19,8 @@ public class Driver {
     System.out.println(tri.getVertex(1).toString());
     System.out.println(tri.getVertex(2).toString());
     System.out.println(tri.getVertex(3).toString());
+
+    System.out.println(tri.toString());
+    System.out.println(tri.getPerimeter());
   }
 }

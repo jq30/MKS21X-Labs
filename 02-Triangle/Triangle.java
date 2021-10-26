@@ -32,4 +32,16 @@ public class Triangle {
       v3 = new Point(p);
     }
   }
+
+  public String toString() {
+    String s = "{";
+    Point[] vertices = {v1, v2, v3};
+    for (int i = 0; i < vertices.length; i++) {
+      s += vertices[i].toString();
+      if (i != vertices.length - 1) {
+        s += ", ";
+      }
+    }
+    return s + "}";
+  }
 }
