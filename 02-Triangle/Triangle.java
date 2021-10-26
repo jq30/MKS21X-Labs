@@ -24,14 +24,12 @@ public class Triangle {
   }
 
   public void setVertex(int i, Point p) {
-    //copies address of old vertex over
-    Point vertex = getVertex(i);
-    System.out.println(vertex);
-    System.out.println(getVertex(i));
-    System.out.println(getVertex(i).toStringx());
-    vertex = p;
-    System.out.println(vertex);
-    System.out.println(vertex.toStringx());
-    System.out.println(getVertex(i));
+    if (i == 1) {
+      v1 = new Point(p);
+    } else if (i == 2) {
+      v2 = new Point(p);
+    } else if (i == 3) {
+      v3 = new Point(p);
+    }
   }
 }
