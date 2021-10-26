@@ -1,5 +1,6 @@
 public class Driver {
   public static void main(String[] args) {
+    /*
     Triangle tri = new Triangle(0, 0, 3, 0, 4, 0);
     System.out.println(tri.toString());
     System.out.println("Perimeter: " + tri.getPerimeter()); //should be 8
@@ -26,5 +27,8 @@ public class Driver {
     uwu.setVertex(3, new Point(2, 4));
     System.out.println(uwu.toString());
     System.out.println("Perimeter: " + uwu.getPerimeter()); //should be double that of prev perimeter ~6.818
+    */
+
+
   }
 }
