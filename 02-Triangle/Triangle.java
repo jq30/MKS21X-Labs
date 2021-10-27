@@ -44,4 +44,11 @@ public class Triangle {
     }
     return s + "}";
   }
+
+  public boolean equals(Triangle T) {
+    if (T == null) {
+      return false;
+    }
+    return v1.equals(T.v1) && v2.equals(T.v2) && v3.equals(T.v3);
+  }
 }
