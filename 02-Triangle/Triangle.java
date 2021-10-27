@@ -1,16 +1,27 @@
 public class Triangle {
   private Point v1, v2, v3;
+  private double[] sideLengths;
 
   public Triangle(Point A, Point B, Point C) {
     v1 = new Point(A);
     v2 = new Point(B);
     v3 = new Point(C);
+    sideLengths = new double[] {
+      Point.distance(v1, v2),
+      Point.distance(v2, v3),
+      Point.distance(v1, v3)
+    };
   }
 
   public Triangle(double a, double b, double c, double d, double e, double f) {
     v1 = new Point(a, b);
     v2 = new Point(c, d);
     v3 = new Point(e, f);
+    sideLengths = new double[] {
+      Point.distance(v1, v2),
+      Point.distance(v2, v3),
+      Point.distance(v1, v3)
+    };
   }
 
   public double getPerimeter() {
@@ -50,5 +61,20 @@ public class Triangle {
       return false;
     }
     return v1.equals(T.v1) && v2.equals(T.v2) && v3.equals(T.v3);
+  }
+
+  public String classify() {
+    String[] classification = {"scalene", "isosceles", "equilateral"};
+    int equalSides = 0;
+    if (sideLengths[0] == sideLengths[1]) {
+      equalSides++;
+    }
+    if (sideLengths[0] == sideLengths[2]) {
+      equalSides++;
+    }
+    if (sideLengths[1] == sideLengths[2]) {
+      equalSides++;
+    }
+    return classification[equalSides];
   }
 }
