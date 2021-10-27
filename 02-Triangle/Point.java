@@ -27,7 +27,7 @@ public class Point {
     return "(" + x + ", " + y + ")";
   }
 
-  private static boolean closeEnough(double a, double b) {
+  public static boolean closeEnough(double a, double b) {
     if (a * b == 0) {
       return a == b;
     }

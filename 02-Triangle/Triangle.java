@@ -64,15 +64,15 @@ public class Triangle {
   }
 
   public String classify() {
-    String[] classification = {"scalene", "isosceles", "equilateral"};
+    String[] classification = {"scalene", "isosceles", "uwu", "equilateral"};
     int equalSides = 0;
-    if (sideLengths[0] == sideLengths[1]) {
+    if (Point.closeEnough(sideLengths[0], sideLengths[1])) {
       equalSides++;
     }
-    if (sideLengths[0] == sideLengths[2]) {
+    if (Point.closeEnough(sideLengths[0], sideLengths[2])) {
       equalSides++;
     }
-    if (sideLengths[1] == sideLengths[2]) {
+    if (Point.closeEnough(sideLengths[1], sideLengths[2])) {
       equalSides++;
     }
     return classification[equalSides];
