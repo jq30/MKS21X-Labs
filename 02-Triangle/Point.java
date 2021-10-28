@@ -36,7 +36,7 @@ public class Point {
   }
 
   public boolean equals(Point p) {
-    if p = null {
+    if (p == null) {
       return false;
     }
     boolean xValues = closeEnough(x, p.x);
