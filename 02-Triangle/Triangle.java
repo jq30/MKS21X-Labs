@@ -77,4 +77,14 @@ public class Triangle {
     }
     return classification[equalSides];
   }
+
+  public double area() {
+    double a = sideLengths[0];
+    double b = sideLengths[1];
+    double c = sideLengths[2];
+
+    double s = (a + b + c) / 2.0;
+    double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    return area;
+  }
 }
