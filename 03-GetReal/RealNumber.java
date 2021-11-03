@@ -38,6 +38,13 @@ public class RealNumber{
     return value - other.getValue();
   }
 
+  public int compareTo(RealNumber n) {/*
+    return negative //if a < b
+    return 0 //if a == b
+    return positive //if a > b
+    //ANY NEGATIVE/POSTIVE VALUE WORKS AS LONG AS IT IS THE RIGHT SIGN*/
+    return 0;
+  }
 
   public double getValue(){
     return value;
