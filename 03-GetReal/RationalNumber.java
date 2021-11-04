@@ -65,18 +65,27 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    if (a * b == 0) {
+      return 0;
+    }
+    int r = a;
+    int greater,lesser;
     if (a == b) {
       return a;
     } else if (a > b) {
-      int greater = a;
-      int lesser = b;
+      greater = a;
+      lesser = b;
     } else {
-      int greater = b;
-      int lesser = a;
+      greater = b;
+      lesser = a;
     }
-    int remainder = greater % lesser;
-    int quotient = a / b;
-    int r = remainder;
+    r = greater % lesser;
+    while (r != 0) {
+      greater = lesser;
+      lesser = r;
+      r = greater % lesser;
+    }
+    return lesser;
     /*
     while (remainder != 0) {
       q = quotient;
@@ -93,7 +102,7 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
