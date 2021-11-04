@@ -65,15 +65,25 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    int remainder = a % b;
+    if (a == b) {
+      return a;
+    } else if (a > b) {
+      int greater = a;
+      int lesser = b;
+    } else {
+      int greater = b;
+      int lesser = a;
+    }
+    int remainder = greater % lesser;
     int quotient = a / b;
     int r = remainder;
+    /*
     while (remainder != 0) {
-      r = remainder;
+      q = quotient;
       remainder = quotient / remainder;
       quotient = quotient / r;
     }
-    return r;
+    return r;*/
     //bwahahahaha its not working rn
   }
 
