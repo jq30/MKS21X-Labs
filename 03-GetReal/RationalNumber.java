@@ -102,7 +102,9 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    
+    int gcd = gcd(numerator, denominator);
+    numerator = numerator / gcd;
+    denominator = denominator / gcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -132,9 +134,5 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber subtract(RationalNumber other){
     return null;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(gcd(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
   }
 }
