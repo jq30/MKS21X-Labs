@@ -19,7 +19,7 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    double n = numerator / denominator;
+    double n = (double)numerator / (double)denominator;
     return n;
   }
 
@@ -65,7 +65,16 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    int remainder = a % b;
+    int quotient = a / b;
+    int r = remainder;
+    while (remainder != 0) {
+      r = remainder;
+      remainder = quotient / remainder;
+      quotient = quotient / r;
+    }
+    return r;
+    //bwahahahaha its not working rn
   }
 
   /**
@@ -81,7 +90,9 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    int newNum = numerator * other.getNumerator();
+    int newDen = denominator * other.getDenominator();
+    return new RationalNumber(newNum, newDen);
   }
 
   /**
@@ -102,5 +113,9 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber subtract(RationalNumber other){
     return null;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(gcd(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
   }
 }
