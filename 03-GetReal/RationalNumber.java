@@ -87,14 +87,6 @@ public class RationalNumber extends RealNumber
       r = greater % lesser;
     }
     return lesser;
-    /*
-    while (remainder != 0) {
-      q = quotient;
-      remainder = quotient / remainder;
-      quotient = quotient / r;
-    }
-    return r;*/
-    //bwahahahaha its not working rn
   }
 
   /**
@@ -104,16 +96,20 @@ public class RationalNumber extends RealNumber
   */
   private void reduce(){
     int gcd = gcd(numerator, denominator);
-    numerator = numerator / gcd;
-    denominator = denominator / gcd;
+    if (gcd != 0) {
+      numerator = numerator / gcd;
+      denominator = denominator / gcd;
+    } else {
+      denominator = 1;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    int newNum = numerator * other.getNumerator();
-    int newDen = denominator * other.getDenominator();
+    int newNum = numerator * other.numerator;
+    int newDen = denominator * other.denominator;
     return new RationalNumber(newNum, newDen);
   }
 
@@ -121,19 +117,28 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    int newNum = numerator * other.denominator;
+    int newDen = denominator * other.numerator;
+    return new RationalNumber(newNum, newDen);
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    //finding lcm doesn't matter because it is going to be reduced anyway
+    int newNum = numerator * other.denominator;
+    int newDen = denominator * other.denominator;
+
+    newNum += other.numerator * denominator;
+
+    return new RationalNumber(newNum, newDen);
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    RationalNumber inverse = other.multiply(new RationalNumber(-1, 1));
+    return this.add(inverse);
   }
 }
