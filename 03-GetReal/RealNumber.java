@@ -43,7 +43,11 @@ public class RealNumber{
     return 0 //if a == b
     return positive //if a > b
     //ANY NEGATIVE/POSTIVE VALUE WORKS AS LONG AS IT IS THE RIGHT SIGN*/
-    return 0;
+    double diff = getValue() - n.getValue();
+    if (diff == 0) {
+      return 0;
+    }
+    return (int)(diff - 1);
   }
 
   public double getValue(){
