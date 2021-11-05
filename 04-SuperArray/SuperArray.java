@@ -38,4 +38,20 @@ public class SuperArray {
     }
     return output += "]";
   }
+
+  ///
+
+  public String set(int i, String element) {
+    String old = data[i];
+    data[i] = element;
+    return old;
+  }
+
+  public String get(int i) {
+    if (i > size) {
+      System.out.println("Excweption in thwead \"main\" </3 úwù SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " While calling get");
+      return null;
+    }
+    return data[i];
+  }
 }
