@@ -49,7 +49,7 @@ public class SuperArray {
 
   public String get(int i) {
     if (i > size) {
-      System.out.println("Excweption in thwead \"main\" </3 úwù SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " While calling get");
+      System.out.println("Excweption in thwead \"main\" </3 (sad úwù) SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " while calling get");
       return null;
     }
     return data[i];
