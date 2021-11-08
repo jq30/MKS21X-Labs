@@ -55,9 +55,13 @@ public class SuperArray {
     return old;
   }
 
+  private static void throwOOB(int i, String func) {
+    System.out.println("Excweption in thwead \"main\" </3 (sad úwù) SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " while calling " + func);
+  }
+
   public String get(int i) {
     if (i > size) {
-      System.out.println("Excweption in thwead \"main\" </3 (sad úwù) SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " while calling get");
+      throwOOB(i, "get");
       return null;
     }
     return data[i];
@@ -95,4 +99,27 @@ public class SuperArray {
     }
     return -1;
   }
+
+  public String remove(int index) {
+    if (index > size) {
+      throwOOB(index, "remove");
+    }
+    //no need to resize because this is removing
+    String[] newData = String[data.length];
+    //copy values over until index
+    for (int i = 0; i < index; i++) {
+      newData[i] = data[i];
+    }
+    //copy rest of values over, not including index
+    //i dont like having two loops either but this still works and runs in linear so ykyk
+    for (int i = index; i < data.length; i++) {
+      newData[i - 1] = data[i];
+    }
+    String removedValue = data[index];
+    //overwrite memory address
+    data = newData;
+    return removedValue;
+  }
+
+  ///
 }
