@@ -100,19 +100,21 @@ public class SuperArray {
     return -1;
   }
 
+///
+
   public String remove(int index) {
-    if (index > size) {
+    if (index > size - 1) {
       throwOOB(index, "remove");
     }
     //no need to resize because this is removing
     String[] newData = new String[data.length];
     //copy values over until index
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i <= index; i++) {
       newData[i] = data[i];
     }
     //copy rest of values over, not including index
     //i dont like having two loops either but this still works and runs in linear so ykyk
-    for (int i = index; i < data.length; i++) {
+    for (int i = index + 1; i < data.length; i++) {
       newData[i - 1] = data[i];
     }
     String removedValue = data[index];
@@ -122,4 +124,11 @@ public class SuperArray {
   }
 
   ///
+
+  public boolean add(int index; String s) {
+    if (index > size) {
+      throwOOB(index, "add");
+    }
+    return true;
+  }
 }
