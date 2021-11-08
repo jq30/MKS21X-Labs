@@ -7,11 +7,19 @@ public class SuperArray {
     size = 0;
   }
 
+  public SuperArray(int n) {
+    data = new String[n];
+    size = 0;
+  }
+
   public int size() {
     return size;
   }
 
   public boolean add(String s) {
+    if (data.length < size + 1) {
+      resize();
+    }
     data[size] = s;
     size++;
     return true;
@@ -53,6 +61,19 @@ public class SuperArray {
       return null;
     }
     return data[i];
+  }
+
+  ///
+
+  private void resize() {
+    //double the size of data
+    String[] newData = new String[data.length * 2];
+    //copy the values over
+    for (int i = 0; i < data.length; i++) {
+      newData[i] = data[i];
+    }
+    //overwrite memory address
+    data = newData;
   }
 
   ///
