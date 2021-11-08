@@ -54,4 +54,15 @@ public class SuperArray {
     }
     return data[i];
   }
+
+  ///
+
+  public int indexOf(String target) {
+    for (int i = 0; i < data.length; i++) {
+      if (target.equals(data[i])) {
+        return i;
+      }
+    }
+    return -1;
+  }
 }
