@@ -129,6 +129,21 @@ public class SuperArray {
     if (index > size) {
       throwOOB(index, "add");
     }
+    //adding 1 to length just in case
+    String[] newData = new String[data.length + 1];
+    //same approach as remove using 2 for loops
+    for (int i = 0; i < index; i++) {
+      newData[i] = data[i];
+    }
+    //insert
+    newData[index] = s;
+    //copy rest of data over
+    for (int i = index, i < data.length; i++) {
+      newData[i+1] = data[i];
+    }
+    //overwrite memory address
+    data = newData;
+    //return true as formality
     return true;
   }
 }
