@@ -149,6 +149,7 @@ public class SuperArray {
 
   ///
 
+  //the racist remove method
   public String remove(String target) {
     return remove(indexOf(target));
   }
