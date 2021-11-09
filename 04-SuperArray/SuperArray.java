@@ -146,4 +146,10 @@ public class SuperArray {
     //return true as formality
     return true;
   }
+
+  ///
+
+  public String remove(String target) {
+    return remove(indexOf(target));
+  }
 }
