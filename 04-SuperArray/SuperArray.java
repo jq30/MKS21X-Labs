@@ -7,7 +7,7 @@ public class SuperArray {
     size = 0;
   }
 
-  public SuperArray(int n) {
+  public SuperArray(int n) throws IllegalArgumentException {
     data = new String[n];
     size = 0;
   }
@@ -108,6 +108,7 @@ public class SuperArray {
     }
     //no need to resize because this is removing
     String[] newData = new String[data.length];
+    size--;
     //copy values over until index
     for (int i = 0; i <= index; i++) {
       newData[i] = data[i];
@@ -131,6 +132,7 @@ public class SuperArray {
     }
     //adding 1 to length just in case
     String[] newData = new String[data.length + 1];
+    size++;
     //same approach as remove using 2 for loops
     for (int i = 0; i < index; i++) {
       newData[i] = data[i];
@@ -151,6 +153,7 @@ public class SuperArray {
 
   //the racist remove method
   public String remove(String target) {
+    size--;
     return remove(indexOf(target));
   }
 }
