@@ -125,7 +125,7 @@ public class SuperArray {
 
   ///
 
-  public boolean add(int index; String s) {
+  public boolean add(int index, String s) {
     if (index > size) {
       throwOOB(index, "add");
     }
@@ -138,7 +138,7 @@ public class SuperArray {
     //insert
     newData[index] = s;
     //copy rest of data over
-    for (int i = index, i < data.length; i++) {
+    for (int i = index; i < data.length; i++) {
       newData[i+1] = data[i];
     }
     //overwrite memory address
