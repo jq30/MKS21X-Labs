@@ -3,6 +3,7 @@ public class SuperArray {
   private int size;
 
   public SuperArray() {
+    //10 is arbitrary, should work for most/all purposes
     data = new String[10];
     size = 0;
   }
@@ -160,7 +161,7 @@ public class SuperArray {
   public String remove(String target) throws IllegalArgumentException {
     int i = indexOf(target);
     if (i > size || i < 0) {
-      throw new IllegalArgumentException("(maybe i dropped my glasses..?) " + target + " not found in SuperArray")
+      throw new IllegalArgumentException("(maybe i dropped my glasses..?) " + target + " not found in SuperArray");
     }
     return remove(i);
   }
