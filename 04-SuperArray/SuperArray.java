@@ -1,6 +1,9 @@
 public class SuperArray {
+
   private String[] data;
   private int size;
+
+/////
 
   public SuperArray() {
     //10 is arbitrary, should work for most/all purposes
@@ -16,17 +19,10 @@ public class SuperArray {
     size = 0;
   }
 
+/////
+
   public int size() {
     return size;
-  }
-
-  public boolean add(String s) {
-    if (data.length < size + 1) {
-      resize();
-    }
-    data[size] = s;
-    size++;
-    return true;
   }
 
   public String toString() {
@@ -51,43 +47,6 @@ public class SuperArray {
     return output += "]";
   }
 
-  ///
-
-  public String set(int i, String element) throws IndexOutOfBoundsException {
-    if (i >= size || i < 0) {
-      throw new IndexOutOfBoundsException("AHHHHHH WAIT NO! Index " + i + " is out of bounds for length " + size);
-    }
-    String old = data[i];
-    data[i] = element;
-    return old;
-  }
-
-  private void throwOOB(int i, String func) {
-    System.out.println("Excweption in thwead \"main\" </3 (sad úwù) SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " while calling " + func);
-  }
-
-  public String get(int i) throws IndexOutOfBoundsException {
-    if (i >= size || i < 0) {
-      throw new IndexOutOfBoundsException("w-wait! Index " + i + " is out of bounds for length " + size);
-    }
-    return data[i];
-  }
-
-  ///
-
-  private void resize() {
-    //double the size of data
-    String[] newData = new String[data.length * 2];
-    //copy the values over
-    for (int i = 0; i < data.length; i++) {
-      newData[i] = data[i];
-    }
-    //overwrite memory address
-    data = newData;
-  }
-
-  ///
-
   public int indexOf(String target) {
     for (int i = 0; i < data.length; i++) {
       if (target.equals(data[i])) {
@@ -106,31 +65,27 @@ public class SuperArray {
     return -1;
   }
 
-///
+/////
 
-  public String remove(int index) throws IndexOutOfBoundsException {
-    if (index >= size || index < 0) {
-      throw new IndexOutOfBoundsException("(i don't see anything to kill...) Index " + index + " is out of bounds for length " + size);
-    }
-    //no need to resize because this is removing
-    String[] newData = new String[data.length];
-    size--;
-    //copy values over until index
-    for (int i = 0; i <= index; i++) {
+  private void resize() {
+    //double the size of data
+    String[] newData = new String[data.length * 2];
+    //copy the values over
+    for (int i = 0; i < data.length; i++) {
       newData[i] = data[i];
     }
-    //copy rest of values over, not including index
-    //i dont like having two loops but this still works and runs in linear so ykyk?
-    for (int i = index + 1; i < data.length; i++) {
-      newData[i - 1] = data[i];
-    }
-    String removedValue = data[index];
     //overwrite memory address
     data = newData;
-    return removedValue;
   }
 
-  ///
+  public boolean add(String s) {
+    if (data.length < size + 1) {
+      resize();
+    }
+    data[size] = s;
+    size++;
+    return true;
+  }
 
   public boolean add(int index, String s) throws IndexOutOfBoundsException {
     if (index > size || index < 0) {
@@ -155,7 +110,43 @@ public class SuperArray {
     return true;
   }
 
-  ///
+  public String set(int i, String element) throws IndexOutOfBoundsException {
+    if (i >= size || i < 0) {
+      throw new IndexOutOfBoundsException("AHHHHHH WAIT NO! Index " + i + " is out of bounds for length " + size);
+    }
+    String old = data[i];
+    data[i] = element;
+    return old;
+  }
+
+  public String get(int i) throws IndexOutOfBoundsException {
+    if (i >= size || i < 0) {
+      throw new IndexOutOfBoundsException("w-wait! Index " + i + " is out of bounds for length " + size);
+    }
+    return data[i];
+  }
+
+  public String remove(int index) throws IndexOutOfBoundsException {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException("(i don't see anything to kill...) Index " + index + " is out of bounds for length " + size);
+    }
+    //no need to resize because this is removing
+    String[] newData = new String[data.length];
+    size--;
+    //copy values over until index
+    for (int i = 0; i <= index; i++) {
+      newData[i] = data[i];
+    }
+    //copy rest of values over, not including index
+    //i dont like having two loops but this still works and runs in linear so ykyk?
+    for (int i = index + 1; i < data.length; i++) {
+      newData[i - 1] = data[i];
+    }
+    String removedValue = data[index];
+    //overwrite memory address
+    data = newData;
+    return removedValue;
+  }
 
   //the racist remove method
   public String remove(String target) throws IllegalArgumentException {
