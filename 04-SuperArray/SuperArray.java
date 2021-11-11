@@ -54,7 +54,7 @@ public class SuperArray {
   ///
 
   public String set(int i, String element) throws IndexOutOfBoundsException {
-    if (i > size || i < 0) {
+    if (i >= size || i < 0) {
       throw new IndexOutOfBoundsException("AHHHHHH WAIT NO! Index " + i + " is out of bounds for length " + size);
     }
     String old = data[i];
@@ -67,7 +67,7 @@ public class SuperArray {
   }
 
   public String get(int i) throws IndexOutOfBoundsException {
-    if (i > size || i < 0) {
+    if (i >= size || i < 0) {
       throw new IndexOutOfBoundsException("w-wait! Index " + i + " is out of bounds for length " + size);
     }
     return data[i];
@@ -109,7 +109,7 @@ public class SuperArray {
 ///
 
   public String remove(int index) throws IndexOutOfBoundsException {
-    if (index > size - 1) {
+    if (index >= size || index < 0) {
       throw new IndexOutOfBoundsException("(i don't see anything to kill...) Index " + index + " is out of bounds for length " + size);
     }
     //no need to resize because this is removing
@@ -160,7 +160,7 @@ public class SuperArray {
   //the racist remove method
   public String remove(String target) throws IllegalArgumentException {
     int i = indexOf(target);
-    if (i > size || i < 0) {
+    if (i == -1) {
       throw new IllegalArgumentException("(maybe i dropped my glasses..?) " + target + " not found in SuperArray");
     }
     return remove(i);
