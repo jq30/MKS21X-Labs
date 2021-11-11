@@ -8,6 +8,9 @@ public class SuperArray {
   }
 
   public SuperArray(int n) throws IllegalArgumentException {
+    if (n < 0) {
+      throw new IllegalArgumentException("Oh noes! Don't use negwatif numbwers! ùwú! " + n + "is an invalid list size");
+    }
     data = new String[n];
     size = 0;
   }
@@ -49,7 +52,10 @@ public class SuperArray {
 
   ///
 
-  public String set(int i, String element) {
+  public String set(int i, String element) throws IndexOutOfBoundsException {
+    if (i > size || i < 0) {
+      throw new IndexOutOfBoundsException("AHHHHHH WAIT NO! Index " + i + " is out of bounds for length " + size);
+    }
     String old = data[i];
     data[i] = element;
     return old;
@@ -59,10 +65,9 @@ public class SuperArray {
     System.out.println("Excweption in thwead \"main\" </3 (sad úwù) SuperArray.IndexOutOfBoundsException: Index " + i + " out of bounds for length " + size + " while calling " + func);
   }
 
-  public String get(int i) {
-    if (i > size) {
-      throwOOB(i, "get");
-      return null;
+  public String get(int i) throws IndexOutOfBoundsException {
+    if (i > size || i < 0) {
+      throw new IndexOutOfBoundsException("w-wait! Index " + i + " is out of bounds for length " + size);
     }
     return data[i];
   }
@@ -102,9 +107,9 @@ public class SuperArray {
 
 ///
 
-  public String remove(int index) {
+  public String remove(int index) throws IndexOutOfBoundsException {
     if (index > size - 1) {
-      throwOOB(index, "remove");
+      throw new IndexOutOfBoundsException("(i don't see anything to kill...) Index " + index + " is out of bounds for length " + size);
     }
     //no need to resize because this is removing
     String[] newData = new String[data.length];
@@ -114,7 +119,7 @@ public class SuperArray {
       newData[i] = data[i];
     }
     //copy rest of values over, not including index
-    //i dont like having two loops either but this still works and runs in linear so ykyk
+    //i dont like having two loops but this still works and runs in linear so ykyk?
     for (int i = index + 1; i < data.length; i++) {
       newData[i - 1] = data[i];
     }
@@ -126,9 +131,9 @@ public class SuperArray {
 
   ///
 
-  public boolean add(int index, String s) {
-    if (index > size) {
-      throwOOB(index, "add");
+  public boolean add(int index, String s) throws IndexOutOfBoundsException {
+    if (index > size || index < 0) {
+      throw new IndexOutOfBoundsException("*sad uwu noises* Index " + index + " is out of bounds for length " + size);
     }
     //adding 1 to length just in case
     String[] newData = new String[data.length + 1];
@@ -152,8 +157,11 @@ public class SuperArray {
   ///
 
   //the racist remove method
-  public String remove(String target) {
-    size--;
-    return remove(indexOf(target));
+  public String remove(String target) throws IllegalArgumentException {
+    int i = indexOf(target);
+    if (i > size || i < 0) {
+      throw new IllegalArgumentException("(maybe i dropped my glasses..?) " + target + " not found in SuperArray")
+    }
+    return remove(i);
   }
 }
