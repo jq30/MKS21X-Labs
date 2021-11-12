@@ -19,6 +19,15 @@ public class SuperArray {
     size = 0;
   }
 
+  //make SuperArray from existing String[]
+  public SuperArray(String[] s) {
+    size = s.length;
+    data = new String[size];
+    for (int i = 0; i < s.length; i++) {
+      data[i] = s[i];
+    }
+  }
+
 /////
 
   public int size() {
