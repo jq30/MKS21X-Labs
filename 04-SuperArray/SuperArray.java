@@ -57,7 +57,7 @@ public class SuperArray {
   }
 
   public int lastIndexOf(String target) {
-    for (int i = data.length; i >= 0; i--) {
+    for (int i = size - 1; i >= 0; i--) {
       if (target.equals(data[i])) {
         return i;
       }
