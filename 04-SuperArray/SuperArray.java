@@ -11,6 +11,7 @@ public class SuperArray {
     size = 0;
   }
 
+  //make SuperArray with specific initial capacity
   public SuperArray(int n) throws IllegalArgumentException {
     if (n < 0) {
       throw new IllegalArgumentException("Oh noes! Don't use negwatif numbwers! ùwú! " + n + "is an invalid list size");
