@@ -3,16 +3,20 @@ import java.util.ArrayList;
 public class ArrayListPractice {
   public static void main(String[] args) {
     ArrayList<String> a = new ArrayList<String>();
-    for (String x : args) {
-      a.add(x);
+    ArrayList<String> b = new ArrayList<String>();
+
+    for (int i = 0; i < 200000; i++) {
+      a.add("0x" + i);
+      b.add("0x" + i);
     }
 
-    String[] bwah = {"uwu", "", "baguette", "727"};
-    ArrayList<String> b = new ArrayList<String>(bwah);
-
+    /*
     System.out.println("replaceEmpty: " + replaceEmpty(a));
     System.out.println("makeReversedList: " + makeReversedList(a));
     System.out.println("mixLists: " + mixLists(a, b));
+    */
+
+    System.out.println("finished");
   }
 
   public static ArrayList<String> replaceEmpty( ArrayList<String> data){
@@ -32,7 +36,7 @@ public class ArrayListPractice {
   public static ArrayList<String> makeReversedList( ArrayList<String> data){
     //return a new ArrayList that is in the reversed order of the parameter.
     ArrayList<String> output = new ArrayList<String>(data.size());
-    for (int i = data.size() - 1; i >= 0; i++) {
+    for (int i = data.size() - 1; i >= 0; i--) {
       output.add(data.get(i));
     }
     return output;
