@@ -15,11 +15,10 @@ public class TrianglesPT2/*ELECTRIC BOOGEALOO*/ {
       try {
         File file = new File("data.txt");
         Scanner input = new Scanner(file);
+        int[][] sideLengths = 
         while (input.hasNextLine()) {
           String line = input.nextLine();
           Scanner sideLength = new Scanner(line);
-
-          int[][]
 
           if (isTriangle(a, b, c)) {
             count++;
