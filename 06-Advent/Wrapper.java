@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Wraps {
+public class Wrapper {
   //return min of two numbers (logic is for losers)
   private static int min(int a, int b) {
     return (a + b - Math.abs(a - b)) / 2;
