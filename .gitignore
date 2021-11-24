@@ -27,3 +27,6 @@ hs_err_pid*
 
 # test file
 test.java
+
+# data files (for testing)
+*.data
