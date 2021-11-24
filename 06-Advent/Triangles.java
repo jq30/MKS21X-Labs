@@ -54,15 +54,22 @@ public class Triangles {
       try {
         File file = new File(filename);
         Scanner input = new Scanner(file);
-        ArrayList<String[]> data = new ArrayList<String[]>();
+        ArrayList<int[]> data = new ArrayList<int[]>();
         while (input.hasNextLine()) {
           String line = input.nextLine();
-          data.add(line.split(" "));
+          Scanner sc = new Scanner(line);
+          int[] linebutarray = new int[3];
+          int p = 0;
+          while (sc.hasNextInt()) {
+            linebutarray[p] = sc.nextInt();
+            p++;
+          }
+          data.add(linebutarray);
         }
 
 
         for (int i = 0; i < data.size(); i += 3) {
-          for (int j = 0; j < 5; j+=2) {
+          for (int j = 0; j < 3; j++) {
             if (isTriangle(data.get(i)[j], data.get(i+1)[j], data.get(i+2)[j])) {
               count++;
             }
