@@ -10,13 +10,6 @@ public class Triangles {
       );
     }
 
-    private static boolean isTriangle(String a, String b, String c) {
-      int s1 = Integer.parseInt(a);
-      int s2 = Integer.parseInt(b);
-      int s3 = Integer.parseInt(c);
-      return isTriangle(s1, s2, s3);
-    }
-
     public static void main(String[] args) {
       String filename = args[0];
       int mode = Integer.parseInt(args[1]);
