@@ -10,9 +10,6 @@ public class Sorts {
           //swap terms
           data[i+1] = data[i];
           data[i] = n;
-
-          //for debug
-          System.out.println("Iteration " + (data.length - k) + ": " + Arrays.toString(data));
         }
       }
     }
@@ -24,8 +21,7 @@ public class Sorts {
       a[i] = Integer.parseInt(args[i]);
     }
 
-    System.out.println("Initial: " + Arrays.toString(a));
-
     bubbleSort(a);
+    System.out.println(Arrays.toString(a));
   }
 }
