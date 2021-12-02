@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.io.*;
+
 public class NON {
   private static boolean isVowel(char c) {
     char[] vowels = {'a', 'e', 'i', 'o', 'u'};
@@ -7,16 +10,6 @@ public class NON {
       }
     }
     return false;
-  }
-
-  public static boolean threeVowels(String s) {
-    int count = 0;
-    for (int i = 0; i < s.length(); i++) {
-      if (isVowel(s.charAt(i))) {
-        count++;
-      }
-    }
-    return count >= 3;
   }
 
   //require precondition that s.length() == 2
@@ -62,15 +55,23 @@ public class NON {
       }
     }
 
-    //for debug
-    System.out.println("vowels: " + vowelsCond);
-    System.out.println("double: " + doubleCond);
-    System.out.println("iterms: " + iTermsCond);
-
     return vowelsCond && doubleCond && iTermsCond;
   }
 
   public static void main(String[] args) {
-    System.out.println(check(args[0]));
+    try {
+      File file = new File(args[0]);
+      Scanner sc = new Scanner(file);
+      int count = 0;
+
+      while (sc.hasNextLine()) {
+        if (check(sc.nextLine())) {
+          count++;
+        }
+      }
+      System.out.println(count);
+    } catch (FileNotFoundException AGHGHGH) {
+      System.out.println("file not found or something, so find it yourself >:(");
+    }
   }
 }
