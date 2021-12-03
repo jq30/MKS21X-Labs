@@ -36,7 +36,7 @@ public class Triangles {
             count++;
           }
         }
-        System.out.println("Number of possible triangles: " + count);
+        System.out.println(count);
       } catch (FileNotFoundException bwahahahahah) {
         System.out.println("File " + filename + " not found!!");
       }
