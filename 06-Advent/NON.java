@@ -61,15 +61,15 @@ public class NON {
   private static boolean pairCondition(String s) {
     //c'est horrible, the runtime of this thing
     //make String[] of 2-letter substrings
-    String[] fragments = new String[String.length - 1];
-    for (int i = 0; i < String.length() - 1; i++) {
-      fragments[i] = s.substring(i, i + 1);
+    String[] fragments = new String[s.length() - 1];
+    for (int i = 0; i < s.length() - 1; i++) {
+      fragments[i] = s.substring(i, i + 2);
     }
     //nested loop through String[] to see if there are any repeats
     for (int i = 0; i < fragments.length; i++) {
       String frag = fragments[i];
       //skip thingy immediately after because no overlap
-      for (int j = i + 2; j < fragments.length - 2; j++) {
+      for (int j = i + 2; j < fragments.length; j++) {
         if (frag.equals(fragments[j])) {
           return true;
         }
@@ -85,11 +85,18 @@ public class NON {
         return true;
       }
     }
-    return false;fragments[i]
+    return false;
   }
 
-  private static checkv2(String s) {
-
+  private static boolean checkv2(String s) {
+    /*
+    //for debug
+    System.out.println();
+    System.out.println(s);
+    System.out.println("betweenRepeat: " + betweenRepeat(s));
+    System.out.println("pairCondition: " + pairCondition(s));
+    */
+    return betweenRepeat(s) && pairCondition(s);
   }
 
   public static void main(String[] args) {
@@ -98,11 +105,20 @@ public class NON {
       Scanner sc = new Scanner(file);
       int count = 0;
 
-      while (sc.hasNextLine()) {
-        if (check(sc.nextLine())) {
-          count++;
+      if (args[1].equals("1")) {
+        while (sc.hasNextLine()) {
+          if (check(sc.nextLine())) {
+            count++;
+          }
+        }
+      } else {
+        while (sc.hasNextLine()) {
+          if (checkv2(sc.nextLine())) {
+            count++;
+          }
         }
       }
+
       System.out.println(count);
     } catch (FileNotFoundException AGHGHGH) {
       System.out.println("file not found or something, so find it yourself >:(");
