@@ -15,13 +15,36 @@ public class Sorts {
     }
   }
 
+  public static void selectionSort(int[] data) {
+    int pointer; //where sorted section stops
+    int minValue, minIndex;
+
+    for (pointer = 0; pointer < data.length; pointer++) {
+      //assume minValue is @ start of unsorted section until proven otherwise
+      minValue = data[pointer];
+      minIndex = pointer;
+      //find min value in array
+      for (int i = pointer; i < data.length; i++) {
+        if (data[i] < minValue) {
+          minValue = data[i];
+          minIndex = i;
+        }
+      }
+
+      //swap values
+      int swap = data[pointer];
+      data[pointer] = data[minIndex];
+      data[minIndex] = swap;
+    }
+  }
+
   public static void main(String[] args) {
     int[] a = new int[args.length];
     for (int i = 0; i < args.length; i++) {
       a[i] = Integer.parseInt(args[i]);
     }
 
-    bubbleSort(a);
+    selectionSort(a);
     System.out.println(Arrays.toString(a));
   }
 }

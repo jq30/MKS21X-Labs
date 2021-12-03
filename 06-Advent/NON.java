@@ -58,6 +58,40 @@ public class NON {
     return vowelsCond && doubleCond && iTermsCond;
   }
 
+  private static boolean pairCondition(String s) {
+    //c'est horrible, the runtime of this thing
+    //make String[] of 2-letter substrings
+    String[] fragments = new String[String.length - 1];
+    for (int i = 0; i < String.length() - 1; i++) {
+      fragments[i] = s.substring(i, i + 1);
+    }
+    //nested loop through String[] to see if there are any repeats
+    for (int i = 0; i < fragments.length; i++) {
+      String frag = fragments[i];
+      //skip thingy immediately after because no overlap
+      for (int j = i + 2; j < fragments.length - 2; j++) {
+        if (frag.equals(fragments[j])) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  private static boolean betweenRepeat(String s) {
+    //loop through and see if i+2 matches index i
+    for (int i = 0; i < s.length() - 2; i++) {
+      if (s.charAt(i) == s.charAt(i+2)) {
+        return true;
+      }
+    }
+    return false;fragments[i]
+  }
+
+  private static checkv2(String s) {
+
+  }
+
   public static void main(String[] args) {
     try {
       File file = new File(args[0]);

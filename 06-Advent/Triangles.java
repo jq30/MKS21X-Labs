@@ -38,7 +38,7 @@ public class Triangles {
         }
         System.out.println("Number of possible triangles: " + count);
       } catch (FileNotFoundException bwahahahahah) {
-        System.out.println("File " + filename + " not found!! idiot!!!");
+        System.out.println("File " + filename + " not found!!");
       }
     }
 
@@ -69,9 +69,9 @@ public class Triangles {
           }
         }
 
-        System.out.println("Number of possible triangles: " + count);
+        System.out.println(count);
       } catch (FileNotFoundException bwahahahahah) {
-        System.out.println("File " + filename + " not found!! idiot!!!");
+        System.out.println("File " + filename + " not found!!");
       }
     }
   }

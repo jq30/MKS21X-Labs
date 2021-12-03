@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Wrapper {
+public class Wrapping {
   //return min of two numbers (logic is for losers)
   private static int min(int a, int b) {
     return (a + b - Math.abs(a - b)) / 2;
@@ -64,7 +64,7 @@ public class Wrapper {
         }
       }
       input.close();
-      System.out.println("Total wrapping paper needed: " + total);
+      System.out.println(total);
     } catch (FileNotFoundException LOLZ) {
       System.out.println(args[0] + " not found!");
     }
