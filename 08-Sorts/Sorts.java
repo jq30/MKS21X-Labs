@@ -38,6 +38,28 @@ public class Sorts {
     }
   }
 
+  public static void insertionSort(int[] data) {
+
+    for (int i = 1; i < data.length; i++) {
+      if (data[i] < data[i-1]) {
+        int p = 0;
+        //place to hold thingy
+        int placeholder = data[i];
+        for (int j = i - 1; j >= 0; j--) {
+          //loop backwards to find thingy less than thingy we're moving
+          if (data[j] < data[i]) {
+            //p is the index we're moving thingy to
+            p = j + 1;
+          }
+        }
+        //move everyone over because data[i] is mvp
+        for (int k = p; k < i; k++) {
+          
+        }
+      }
+    }
+  }
+
   //provide int[] and params in args
   public static void main(String[] args) {
     int[] a = new int[args.length];
