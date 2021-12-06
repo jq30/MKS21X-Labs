@@ -38,13 +38,32 @@ public class Sorts {
     }
   }
 
+  //provide int[] and params in args
   public static void main(String[] args) {
     int[] a = new int[args.length];
+    int p = 0;
     for (int i = 0; i < args.length; i++) {
-      a[i] = Integer.parseInt(args[i]);
+      try {
+        a[i] = Integer.parseInt(args[i]);
+      } catch (NumberFormatException e) {
+        //i was told not to use break :c
+        p = i;
+        i = args.length;
+      }
     }
 
-    selectionSort(a);
+    System.out.println(Arrays.toString(a));
+
+    if (args[p].equals("-bubble")) {
+      bubbleSort(a);
+    } else if (args[p].equals("-selection")) {
+      selectionSort(a);
+    } else if (args[p].equals("-insertion")) {
+
+    } else {
+      selectionSort(a);
+    }
+
     System.out.println(Arrays.toString(a));
   }
 }
