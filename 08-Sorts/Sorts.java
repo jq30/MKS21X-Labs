@@ -39,23 +39,29 @@ public class Sorts {
   }
 
   public static void insertionSort(int[] data) {
-
-    for (int i = 1; i < data.length; i++) {
-      if (data[i] < data[i-1]) {
-        int p = 0;
-        //place to hold thingy
-        int placeholder = data[i];
-        for (int j = i - 1; j >= 0; j--) {
-          //loop backwards to find thingy less than thingy we're moving
-          if (data[j] < data[i]) {
-            //p is the index we're moving thingy to
-            p = j + 1;
+    //loop through looking for when next number is smaller than current index
+    for (int i = 0; i < data.length - 1; i++) {
+      if (data[i+1] < data[i]) {
+        //find index to put this thingy
+        //0 for put in beginning of array if no target found
+        int target = 0;
+        for (int j = i; j >= 0; j--) {
+          if (data[j] < data[i+1]) {
+            target = j + 1;
+            //exit loop
+            j = -1;
           }
         }
-        //move everyone over because data[i] is mvp
-        for (int k = p; k < i; k++) {
-          
+
+        //relocate values
+        int placeholder = data[target];
+        data[target] = data[i + 1];
+        for (int k = target + 1; k < i + 1; k++) {
+          int x = data[k];
+          data[k] = placeholder;
+          placeholder = x;
         }
+        data[i+1] = placeholder;
       }
     }
   }
@@ -74,18 +80,20 @@ public class Sorts {
       }
     }
 
-    System.out.println(Arrays.toString(a));
-
-    if (args[p].equals("-bubble")) {
+    System.out.println("Starting: " + Arrays.toString(a));
+/*
+    if (args[p].equals("-b")) {
       bubbleSort(a);
-    } else if (args[p].equals("-selection")) {
+    } else if (args[p].equals("-s")) {
       selectionSort(a);
-    } else if (args[p].equals("-insertion")) {
-
+    } else if (args[p].equals("-i")) {
+      insertionSort(a);
     } else {
       selectionSort(a);
     }
+*/
 
-    System.out.println(Arrays.toString(a));
+    insertionSort(a);
+    System.out.println("Sorted: " + Arrays.toString(a));
   }
 }
