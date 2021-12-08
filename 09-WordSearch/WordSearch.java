@@ -53,7 +53,15 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word,int row, int col){
+    public boolean addWordHorizontal(String word,int row, int col) {
+      //if the operation is ok, true until proven otherwise
+      boolean addOK = true;
+      //loop through both word and data[row]
+      for (int i = 0; i < data[row].length; i++) {
+        if (!(data[row][col + i] == word.charAt(i))) {
+          return false;
+        }
+      }
       return true;
     }
 
