@@ -26,7 +26,19 @@ public class WordSearch{
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
-    public String toString(){
+    public String toString() {
+      String output = "";
+      for (int i = 0; i < data.length; i++) {
+        for (int j = 0; j < data[i].length; j++) {
+          output += data[i][j];
+          if (!(j == data[i].length - 1)) {
+          }
+        }
+        if (!(i == data.length - 1)) {
+          output += "\n";
+        }
+      }
+      return output;
     }
 
 
@@ -42,6 +54,7 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
+      return true;
     }
 
 
@@ -57,5 +70,6 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word,int row, int col){
+      return true;
     }
 }
