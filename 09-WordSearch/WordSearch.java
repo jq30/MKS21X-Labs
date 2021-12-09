@@ -32,6 +32,7 @@ public class WordSearch{
         for (int j = 0; j < data[i].length; j++) {
           output += data[i][j];
           if (!(j == data[i].length - 1)) {
+            output += " ";
           }
         }
         if (!(i == data.length - 1)) {
@@ -53,14 +54,17 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word,int row, int col) {
-      //if the operation is ok, true until proven otherwise
-      boolean addOK = true;
+    public boolean addWordHorizontal(String word, int row, int col) {
       //loop through both word and data[row]
-      for (int i = 0; i < data[row].length; i++) {
-        if (!(data[row][col + i] == word.charAt(i))) {
+      //to check if word will fit
+      for (int i = 0; i < word.length(); i++) {
+        if (!(data[row][col + i] == '_' || data[row][col + i] == word.charAt(i))) {
           return false;
         }
+      }
+
+      for (int i = 0; i < word.length(); i++) {
+        data[row][col + 1] =
       }
       return true;
     }
