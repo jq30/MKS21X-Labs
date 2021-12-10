@@ -6,7 +6,11 @@ public class tester {
     System.out.println(aaaaaaaaaaaaaaaaaaaaaa.toString());
 
     System.out.println("addWordHorizontal");
-    System.out.println(aaaaaaaaaaaaaaaaaaaaaa.addWordHorizontal("kekw", 2, 2));
+    System.out.println(aaaaaaaaaaaaaaaaaaaaaa.addWord("kekw", 2, 2, 1, 1));
+
+    System.out.println(aaaaaaaaaaaaaaaaaaaaaa.addWord("osu!", 8, 7, -1, 0));
+
+    System.out.println("final");
     System.out.println(aaaaaaaaaaaaaaaaaaaaaa.toString());
   }
 }

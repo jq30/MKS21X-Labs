@@ -59,16 +59,45 @@ public class WordSearch{
       //to check if word will fit
       for (int i = 0; i < word.length(); i++) {
         if (!(data[row][col + i] == '_' || data[row][col + i] == word.charAt(i))) {
+          //return false for word unsuccessfully added
           return false;
         }
       }
 
+      //add the word
       for (int i = 0; i < word.length(); i++) {
-        data[row][col + 1] =
+        data[row][col + i] = word.charAt(i);
+        System.out.println(this.toString());
       }
+
+      //return true for word successfully added
       return true;
     }
 
+    //generalized version of addWord
+    public boolean addWord(String word, int row, int col, int rowInc, int colInc) throws IllegalArgumentException {
+      //check if both increments are 0
+      if (rowInc == 0 && colInc == 0) {
+        throw new IllegalArgumentException("Both row and column increments cannot be 0!");
+      }
+
+      //loop through both word and data to check if word will fit
+      for (int i = 0; i < word.length(); i++) {
+        if (!(data[row + (rowInc * i)][col + (colInc * i)] == '_' || data[row + (rowInc * i)][col + (colInc * i)] == word.charAt(i))) {
+          //return false for word unsuccessfully added
+          return false;
+        }
+      }
+
+      //add the word
+      for (int i = 0; i < word.length(); i++) {
+        data[row + (rowInc * i)][col + (colInc * i)] = word.charAt(i);
+        System.out.println(this.toString());
+      }
+
+      //return true for word successfully added
+      return true;
+    }
 
    /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top to bottom, must fit on the WordGrid, and must
