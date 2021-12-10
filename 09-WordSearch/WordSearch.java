@@ -92,7 +92,6 @@ public class WordSearch{
       //add the word
       for (int i = 0; i < word.length(); i++) {
         data[row + (rowInc * i)][col + (colInc * i)] = word.charAt(i);
-        System.out.println(this.toString());
       }
 
       //return true for word successfully added
