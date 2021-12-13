@@ -1,6 +1,7 @@
 /* Lab9: Word Search generator */
 
 import java.io.*; //File, FileNotFoundException
+import java.util.*; //ArrayList
 
 public class WordSearch{
     private char[][] data;
@@ -28,8 +29,11 @@ public class WordSearch{
         //Choose a randSeed using the clock random
     }
 
+
+    private ArrayList<String> wordsToAdd = new ArrayList<String>();
+
     public WordSearch( int rows, int cols, String fileName, int randSeed){
-        //Use the random seed specified.
+
     }
 
 
