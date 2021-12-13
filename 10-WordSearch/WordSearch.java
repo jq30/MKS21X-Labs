@@ -1,17 +1,11 @@
 /* Lab9: Word Search generator */
 
 import java.io.*; //File, FileNotFoundException
-import java.util.*; //ArrayList
+import java.util.*; //ArrayList, Scanner
 
 public class WordSearch{
     //char[][] for the grid
     private char[][] data;
-
-    //old constructor
-    public WordSearch(int rows, int cols, String fileName) {
-      data = new char[rows][cols];
-      clear();
-    }
 
     //a random Object to unify your random calls
     private Random rng;
@@ -27,11 +21,15 @@ public class WordSearch{
     }
 
     //ArrayList to store words left to add
-    private ArrayList<String> wordsToAdd = new ArrayList<String>();
+    private ArrayList<String> wordsToAdd;
 
     public WordSearch( int rows, int cols, String fileName, int randSeed){
-      //intialize Random
+      //intialize stuff
+      data = new char[rows][cols];
       rng = new Random(randSeed);
+      wordsToAdd = new ArrayList<String>();
+
+      clear();
     }
 
 
@@ -128,8 +126,21 @@ public class WordSearch{
     }
     */
 
+    private void parseWords(String filename) {
+      try {
+        File F = new File(filename);
+        Scanner sc = new Scanner(F);
+        while (sc.hasNextLine()) {
+          wordsToAdd.add(sc.nextLine());
+        }
+      } catch (FileNotFoundException bah) {
+        System.out.println("File " + filename + " not found!");
+        System.exit(1);
+      }
+    }
+
     private void addAllWords() {
-      /*Attempt to add all of the words from the wordsToAdd list using the algorithm described above*/
+
     }
 
     /*THE REST OF YOUR METHODS HERE*/
