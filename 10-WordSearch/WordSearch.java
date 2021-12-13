@@ -4,20 +4,17 @@ import java.io.*; //File, FileNotFoundException
 import java.util.*; //ArrayList
 
 public class WordSearch{
+    //char[][] for the grid
     private char[][] data;
 
-    /**Initialize the grid to the size specified
-     *and fill all of the positions with '_'
-     *@param rows is the starting height of the WordSearch
-     *@param cols is the starting width of the WordSearch
-     */
+    //old constructor
     public WordSearch(int rows, int cols, String fileName) {
       data = new char[rows][cols];
       clear();
     }
 
     //a random Object to unify your random calls
-    private Random randgen;
+    private Random rng;
 
     //all words that were successfully added get moved into wordsAdded.
     private ArrayList<String>wordsAdded;
@@ -29,15 +26,16 @@ public class WordSearch{
         //Choose a randSeed using the clock random
     }
 
-
+    //ArrayList to store words left to add
     private ArrayList<String> wordsToAdd = new ArrayList<String>();
 
     public WordSearch( int rows, int cols, String fileName, int randSeed){
-
+      //intialize Random
+      rng = new Random(randSeed);
     }
 
 
-      /**Set all values in the WordSearch to underscores'_'*/
+      //sets everything in grid to underscores
       private void clear() {
         for (int i = 0; i < data.length; i++) {
           for (int j = 0; j < data[i].length; j++) {
@@ -46,21 +44,7 @@ public class WordSearch{
         }
       }
 
-    /**Attempts to add a given word to the specified position of the WordGrid.
-    *The word is added in the direction rowIncrement,colIncrement
-    *Words must have a corresponding letter to match any letters that it overlaps.
-    *
-    *@param word is any text to be added to the word grid.
-    *@param row is the vertical locaiton of where you want the word to start.
-    *@param col is the horizontal location of where you want the word to start.
-    *@param rowInc is -1,0, or 1 and represents the displacement of each letter in the row direction
-    *@param colInc is -1,0, or 1 and represents the displacement of each letter in the col direction
-    *@return true when: the word is added successfully.
-    *        false (and do not change the board at all) when any of the following happen:
-    *        a) rowInc and colInc are both 0,
-    *        b) the word doesn't fit,
-    *        c) there are overlapping letters that do not match
-    */
+    //omni-directional addWord
     private boolean addWord(String word,int row, int col, int rowInc, int colInc){
       //check if both increments are 0
       if (rowInc == 0 && colInc == 0) {
@@ -87,7 +71,7 @@ public class WordSearch{
       //return true for word successfully added
       return true;
     }
-
+    /* OLD ADDWORDS
     public boolean addWordHorizontal(String word, int row, int col) {
       //loop through both word and data[row]
       //to check if word will fit
@@ -142,7 +126,7 @@ public class WordSearch{
       }
       return true;
     }
-
+    */
 
     private void addAllWords() {
       /*Attempt to add all of the words from the wordsToAdd list using the algorithm described above*/
@@ -150,10 +134,7 @@ public class WordSearch{
 
     /*THE REST OF YOUR METHODS HERE*/
 
-    /**Each row is a new line, there is a space between each letter
-     *@return a String with each character separated by spaces, and rows
-     *separated by newlines.
-     */
+    //toString method that prints out grid and words to search and seed
     public String toString() {
       String output = "";
       for (int i = 0; i < data.length; i++) {
@@ -169,14 +150,4 @@ public class WordSearch{
       }
       return output;
     }
-
-
-    /**Adds as many words as possible from a file.
-      *The program will attempt to randomly add the words to the grid multiple times.
-      *
-      *
-      *@param fileName is the file containing the words it should be adding to the grid.
-      *
-    */
-
 }
