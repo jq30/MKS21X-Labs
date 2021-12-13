@@ -60,15 +60,19 @@ public class WordSearch{
     private boolean addWord(String word,int row, int col, int rowInc, int colInc){
       //check if both increments are 0
       if (rowInc == 0 && colInc == 0) {
-        throw new IllegalArgumentException("Both row and column increments cannot be 0!");
+        return false;
       }
 
       //loop through both word and data to check if word will fit
-      for (int i = 0; i < word.length(); i++) {
-        if (!(data[row + (rowInc * i)][col + (colInc * i)] == '_' || data[row + (rowInc * i)][col + (colInc * i)] == word.charAt(i))) {
-          //return false for word unsuccessfully added
-          return false;
+      try {
+        for (int i = 0; i < word.length(); i++) {
+          if (!(data[row + (rowInc * i)][col + (colInc * i)] == '_' || data[row + (rowInc * i)][col + (colInc * i)] == word.charAt(i))) {
+            //return false for word unsuccessfully added
+            return false;
+          }
         }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return false;
       }
 
       //add the word
@@ -77,6 +81,61 @@ public class WordSearch{
       }
 
       //return true for word successfully added
+      return true;
+    }
+
+    public boolean addWordHorizontal(String word, int row, int col) {
+      //loop through both word and data[row]
+      //to check if word will fit
+      try {
+        for (int i = 0; i < word.length(); i++) {
+          if (!(data[row][col + i] == '_' || data[row][col + i] == word.charAt(i))) {
+            return false;
+          }
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return false;
+      }
+
+      for (int i = 0; i < word.length(); i++) {
+        data[row][col + i] = word.charAt(i);
+      }
+      return true;
+    }
+
+    public boolean addWordDiagonal(String word, int row, int col) {
+      try {
+        for (int i = 0; i < word.length(); i++) {
+          if (!(data[row][col + i] == '_' || data[row][col + i] == word.charAt(i))) {
+            return false;
+          }
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return false;
+      }
+
+      for (int i = 0; i < word.length(); i++) {
+        data[row + i][col + i] = word.charAt(i);
+      }
+      return true;
+    }
+
+    public boolean addWordVertical(String word, int row, int col) {
+      //loop through both word and data[row]
+      //to check if word will fit
+      try {
+        for (int i = 0; i < word.length(); i++) {
+          if (!(data[row][col + i] == '_' || data[row][col + i] == word.charAt(i))) {
+            return false;
+          }
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        return false;
+      }
+
+      for (int i = 0; i < word.length(); i++) {
+        data[row + i][col] = word.charAt(i);
+      }
       return true;
     }
 
