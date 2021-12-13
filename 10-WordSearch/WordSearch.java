@@ -29,7 +29,10 @@ public class WordSearch{
       rng = new Random(randSeed);
       wordsToAdd = new ArrayList<String>();
 
+      parseWords(fileName);
       clear();
+
+      System.out.println("wordsToAdd: " + wordsToAdd.toString());
     }
 
 
