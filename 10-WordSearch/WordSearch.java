@@ -29,8 +29,8 @@ public class WordSearch{
       rng = new Random(randSeed);
       wordsToAdd = new ArrayList<String>();
 
-      parseWords(fileName);
       clear();
+      addAllWords();
 
       System.out.println("wordsToAdd: " + wordsToAdd.toString());
     }
@@ -129,6 +129,7 @@ public class WordSearch{
     }
     */
 
+    //fill ArrayList using words from document
     private void parseWords(String filename) {
       try {
         File F = new File(filename);
@@ -142,8 +143,23 @@ public class WordSearch{
       }
     }
 
-    private void addAllWords() {
+    //add all the words
+    private void addAllWords(String filename) {
+      parseWords(filename);
 
+      //loop through ArrayList
+      for (int i = 0; i < wordsToAdd.length(); i++) {
+        //try 20 times to add the word
+        for (int j = 0; j < 20; j++) {
+          //use
+          addWord(wordsToAdd.get(i), rng.nextInt() % );
+        }
+      }
+    }
+
+    //small math function to get sign of random number
+    private static int normal(int n) {
+      return n / Math.abs(n);
     }
 
     /*THE REST OF YOUR METHODS HERE*/
