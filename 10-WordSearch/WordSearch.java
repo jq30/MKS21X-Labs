@@ -39,6 +39,7 @@ public class WordSearch {
 
   /***** PRIVATE METHODS *****/
 
+  //returns an int between lower and upper, inclusive
   private int randInt(int lower, int upper) {
     int r = rng.nextInt();
     r = Math.abs(r) % Math.abs(upper + 1 - lower);
@@ -46,6 +47,7 @@ public class WordSearch {
 
     return r;
   }
+
 
   //sets everything in grid to underscores
   private void clear() {
@@ -120,6 +122,28 @@ public class WordSearch {
     }
   }
 
+
+  //returns random uppercase letter
+  private char randChar() {
+    //can be done like this:
+    //return (char)randInt((int)'A', (int)'Z');
+    //but ew extra typecasting
+    return (char)randInt('A', 'Z');
+  }
+
+  //fill in random letters
+  private void fillInRandomLetters() {
+    //loop through 2d array and replace underscores with random letters
+    for (int i = 0; i < data.length; i++) {
+      for (int j = 0; j < data[i].length; j++) {
+        if (data[i][j] == '_') {
+          //set to random letter
+          data[i][j] = randChar();
+        }
+      }
+    }
+  }
+
   /***** PUBLIC METHODS *****/
 
   //toString method that prints out grid and words to search and seed
@@ -148,6 +172,10 @@ public class WordSearch {
 
   public static void main(String[] args) {
     WordSearch aaaaaaaaaaaaaaaaaa = new WordSearch(10, 10, "aaa.data", 727);
+
+    //note to self: dont let mr. k see me using private method in main
+    aaaaaaaaaaaaaaaaaa.fillInRandomLetters();
+
     System.out.println(aaaaaaaaaaaaaaaaaa.toString());
   }
 
