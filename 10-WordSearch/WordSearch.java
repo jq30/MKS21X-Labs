@@ -151,13 +151,16 @@ public class WordSearch{
       for (int i = 0; i < wordsToAdd.size(); i++) {
         //try 20 times to add the word
         for (int j = 0; j < 20; j++) {
-          //use
-
+          //use random values for addWord
+          if (addWord(wordsToAdd.get(i).toUpperCase(), randInt(0, data.length), randInt(0, data[0].length), randInt(-1, 1), randInt(-1, 1))) {
+            //bargin bin break statement
+            j = 20;
+          }
         }
       }
     }
 
-    //small math function to get sign of random number
+    //small math function to get sign of number
     private static int normal(int n) {
       return n / Math.abs(n);
     }
@@ -181,7 +184,7 @@ public class WordSearch{
       return output;
     }
 
-    public static int randInt(int lower, int upper) {
+    public int randInt(int lower, int upper) {
       Random rng0 = new Random();
       int r = rng0.nextInt();
       r = Math.abs(r) % Math.abs(upper + 1 - lower);
@@ -191,8 +194,7 @@ public class WordSearch{
     }
 
     public static void main(String[] args) {
-      for (int i = 0; i < 30; i++) {
-        System.out.println(randInt(-2, 2));
-      }
+      WordSearch aaaaaaaaaaaaaaaaaa = new WordSearch(10, 10, "aaa.data", 727);
+      System.out.println(aaaaaaaaaaaaaaaaaa.toString());
     }
 }
