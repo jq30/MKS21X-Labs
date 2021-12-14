@@ -170,14 +170,45 @@ public class WordSearch {
     return output;
   }
 
+  //shorthand for parseInt
+  public static int toInt(String n) {
+    return Integer.parseInt(n);
+  }
 
+  /***** MAIN *****/
+
+  //args go like: [(int) rows, (int) columns, (String) filename, (0, 1) mode, (int) *seed*]
+  //(* are optional)
   public static void main(String[] args) {
-    WordSearch aaaaaaaaaaaaaaaaaa = new WordSearch(10, 10, "aaa.data", 727);
+    //test for not enough arguments
+    if (args.length < 4) {
+      System.out.println("ERROR: Missing arguments!");
+      exit(1);
+    }
 
-    //note to self: dont let mr. k see me using private method in main
-    aaaaaaaaaaaaaaaaaa.fillInRandomLetters();
+    WordSearch x;
 
-    System.out.println(aaaaaaaaaaaaaaaaaa.toString());
+    //test for 5th argument
+    if (args.length == 5) {
+      //use seeded constructor
+      x = new WordSearch(toInt(args[0], toInt(args[1]), args[2], args[4]);
+    } else {
+      //use the seedless constructor
+      x = new WordSearch(toInt(args[0]), toInt(args[1]), args[2]);
+    }
+
+    //check if we're creating an answer key
+    if (args[3].equals("0")) {
+      //don't make an answer key
+      x.fillInRandomLetters();
+    } else if (! args[3].equals("1")) {
+      //yell at whoever is using program for funzies
+      System.out.println(args[3] + " is an invalid input for mode!");
+    }
+    //if it's an answer key, no other action needed
+
+    //print the goshdarned thing
+    System.out.println(x.toString());
   }
 
   /* OLD ADDWORDS
