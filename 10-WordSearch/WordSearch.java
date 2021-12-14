@@ -30,7 +30,7 @@ public class WordSearch{
       wordsToAdd = new ArrayList<String>();
 
       clear();
-      addAllWords();
+      addAllWords(fileName);
 
       System.out.println("wordsToAdd: " + wordsToAdd.toString());
     }
@@ -148,11 +148,11 @@ public class WordSearch{
       parseWords(filename);
 
       //loop through ArrayList
-      for (int i = 0; i < wordsToAdd.length(); i++) {
+      for (int i = 0; i < wordsToAdd.size(); i++) {
         //try 20 times to add the word
         for (int j = 0; j < 20; j++) {
           //use
-          addWord(wordsToAdd.get(i), rng.nextInt() % );
+
         }
       }
     }
@@ -179,5 +179,20 @@ public class WordSearch{
         }
       }
       return output;
+    }
+
+    public static int randInt(int lower, int upper) {
+      Random rng0 = new Random();
+      int r = rng0.nextInt();
+      r = Math.abs(r) % Math.abs(upper + 1 - lower);
+      r += lower;
+
+      return r;
+    }
+
+    public static void main(String[] args) {
+      for (int i = 0; i < 30; i++) {
+        System.out.println(randInt(-2, 2));
+      }
     }
 }
