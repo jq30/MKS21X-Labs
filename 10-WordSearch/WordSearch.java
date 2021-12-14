@@ -11,30 +11,30 @@ public class WordSearch {
 
   //a random Object to unify your random calls
   private Random rng;
-  private int seed = 727;
+  private int seed;
 
   //ArrayList to store words left to add
   private ArrayList<String> wordsToAdd;
 
   //all words that were successfully added get moved into wordsAdded.
-  private ArrayList<String> wordsAdded = new ArrayList<String>();
+  private ArrayList<String> wordsAdded;
 
   /***** CONSTRUCTORS *****/
 
-  public WordSearch( int rows, int cols, String fileName){
-      //Choose a randSeed using the clock random
-  }
-
-  public WordSearch( int rows, int cols, String fileName, int randSeed){
+  public WordSearch(int rows, int cols, String fileName, int randSeed){
     //intialize stuff
     data = new char[rows][cols];
     rng = new Random(randSeed);
     wordsToAdd = new ArrayList<String>();
+    wordsAdded = new ArrayList<String>();
 
     clear();
     addAllWords(fileName);
+  }
 
-    System.out.println("wordsToAdd: " + wordsToAdd.toString());
+  public WordSearch(int rows, int cols, String fileName) {
+    //use random 4 digit number for seed
+    this(rows, cols, fileName, (int)(Math.random() * 10000));
   }
 
   /***** PRIVATE METHODS *****/
