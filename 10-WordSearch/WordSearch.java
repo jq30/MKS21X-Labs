@@ -185,8 +185,7 @@ public class WordSearch{
     }
 
     public int randInt(int lower, int upper) {
-      Random rng0 = new Random();
-      int r = rng0.nextInt();
+      int r = rng.nextInt();
       r = Math.abs(r) % Math.abs(upper + 1 - lower);
       r += lower;
 
