@@ -183,7 +183,7 @@ public class WordSearch {
     //test for not enough arguments
     if (args.length < 4) {
       System.out.println("ERROR: Missing arguments!");
-      exit(1);
+      System.exit(1);
     }
 
     WordSearch x;
@@ -191,7 +191,7 @@ public class WordSearch {
     //test for 5th argument
     if (args.length == 5) {
       //use seeded constructor
-      x = new WordSearch(toInt(args[0], toInt(args[1]), args[2], args[4]);
+      x = new WordSearch(toInt(args[0]), toInt(args[1]), args[2], toInt(args[4]));
     } else {
       //use the seedless constructor
       x = new WordSearch(toInt(args[0]), toInt(args[1]), args[2]);
