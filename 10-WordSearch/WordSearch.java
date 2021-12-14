@@ -9,9 +9,10 @@ public class WordSearch{
 
     //a random Object to unify your random calls
     private Random rng;
+    private int seed = 727;
 
     //all words that were successfully added get moved into wordsAdded.
-    private ArrayList<String>wordsAdded;
+    private ArrayList<String> wordsAdded = new ArrayList<String>();
 
     /*New Constructors:  Both will read in the word text file, then run addAllWords().
      *Do not fill in random letters after.*/
@@ -135,7 +136,7 @@ public class WordSearch{
         File F = new File(filename);
         Scanner sc = new Scanner(F);
         while (sc.hasNextLine()) {
-          wordsToAdd.add(sc.nextLine());
+          wordsToAdd.add(sc.nextLine().toUpperCase());
         }
       } catch (FileNotFoundException bah) {
         System.out.println("File " + filename + " not found!");
@@ -149,12 +150,14 @@ public class WordSearch{
 
       //loop through ArrayList
       for (int i = 0; i < wordsToAdd.size(); i++) {
-        //try 100 times to add the word
+        //try at most 100 times to add the word
         for (int j = 0; j < 100; j++) {
           //use random values for addWord
-          if (addWord(wordsToAdd.get(i).toUpperCase(), randInt(0, data.length), randInt(0, data[0].length), randInt(-1, 1), randInt(-1, 1))) {
+          if (addWord(wordsToAdd.get(i), randInt(0, data.length), randInt(0, data[0].length), randInt(-1, 1), randInt(-1, 1))) {
+            //mark word as added
+            wordsAdded.add(wordsToAdd.get(i));
             //bargin bin break statement
-            j = 20;
+            j = 100;
           }
         }
       }
@@ -170,6 +173,8 @@ public class WordSearch{
     //toString method that prints out grid and words to search and seed
     public String toString() {
       String output = "";
+
+      //convert 2d array to grid
       for (int i = 0; i < data.length; i++) {
         for (int j = 0; j < data[i].length; j++) {
           output += data[i][j];
@@ -177,10 +182,14 @@ public class WordSearch{
             output += " ";
           }
         }
-        if (!(i == data.length - 1)) {
-          output += "\n";
-        }
+        output += "\n";
       }
+
+      //wordsAdded
+      output += "Words: " + wordsAdded.toString();
+      //seed
+      output += "\nSeed: " + seed;
+
       return output;
     }
 
