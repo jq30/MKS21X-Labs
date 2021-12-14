@@ -131,8 +131,10 @@ public class WordSearch {
     return (char)randInt('A', 'Z');
   }
 
+  /***** PUBLIC METHODS *****/
+
   //fill in random letters
-  private void fillInRandomLetters() {
+  public void fillInRandomLetters() {
     //loop through 2d array and replace underscores with random letters
     for (int i = 0; i < data.length; i++) {
       for (int j = 0; j < data[i].length; j++) {
@@ -144,7 +146,6 @@ public class WordSearch {
     }
   }
 
-  /***** PUBLIC METHODS *****/
 
   //toString method that prints out grid and words to search and seed
   public String toString() {
