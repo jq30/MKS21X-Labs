@@ -149,8 +149,8 @@ public class WordSearch{
 
       //loop through ArrayList
       for (int i = 0; i < wordsToAdd.size(); i++) {
-        //try 20 times to add the word
-        for (int j = 0; j < 20; j++) {
+        //try 100 times to add the word
+        for (int j = 0; j < 100; j++) {
           //use random values for addWord
           if (addWord(wordsToAdd.get(i).toUpperCase(), randInt(0, data.length), randInt(0, data[0].length), randInt(-1, 1), randInt(-1, 1))) {
             //bargin bin break statement
