@@ -25,6 +25,7 @@ public class WordSearch {
     //intialize stuff
     data = new char[rows][cols];
     rng = new Random(randSeed);
+    seed = randSeed;
     wordsToAdd = new ArrayList<String>();
     wordsAdded = new ArrayList<String>();
 
