@@ -164,7 +164,16 @@ public class WordSearch {
     }
 
     //wordsAdded
-    output += "Words: " + wordsAdded.toString();
+    /*output += "Words: " + wordsAdded.toString();*/
+    //loop through ArrayList and concatenate the stuff manually
+    output += "Words: ";
+    for (int i = 0; i < wordsAdded.size(); i++) {
+      output += wordsAdded.get(i);
+      if (!(i == wordsAdded.size() - 1)) {
+        output += ", ";
+      }
+    }
+
     //seed
     output += "\nSeed: " + seed;
 
