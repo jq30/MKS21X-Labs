@@ -34,4 +34,12 @@ public class NoNullArrayList<T> extends ArrayList<T> {
       throw new IllegalArgumentException("Error adding null to ArrayList whilst calling add");
     }
   }
+
+  public T set(int index, T obj) throws IllegalArgumentException {
+    if (!(obj == null)) {
+      return super.set(index, obj);
+    } else {
+      throw new IllegalArgumentException("Error adding null to ArrayList whilst calling set");
+    }
+  }
 }
