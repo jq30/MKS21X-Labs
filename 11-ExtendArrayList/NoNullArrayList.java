@@ -6,12 +6,12 @@ public class NoNullArrayList<T> extends ArrayList<T> {
 
   /***** Constructors *****/
 
-  public NoNullArrayList<T>() {
+  public NoNullArrayList() {
     super();
   }
 
-  public NoNullArrayList<T>(int initialSize) {
-    super(initialSize);
+  public NoNullArrayList(int initialCapacity) {
+    super(initialCapacity);
   }
 
   /***** Private Methods *****/
