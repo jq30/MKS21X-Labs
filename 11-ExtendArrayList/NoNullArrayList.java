@@ -27,9 +27,9 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     }
   }
 
-  public boolean add(int index, T obj) throws IllegalArgumentException {
+  public void add(int index, T obj) throws IllegalArgumentException {
     if (!(obj == null)) {
-      return super.add(index, obj);
+      super.add(index, obj);
     } else {
       throw new IllegalArgumentException("Error adding null to ArrayList whilst calling add");
     }
