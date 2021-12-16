@@ -19,5 +19,11 @@ public class NoNullArrayList<T> extends ArrayList<T> {
 
   /***** Public Methods *****/
 
-
+  public boolean add(T obj) throws IllegalArgumentException {
+    if (!(obj == null)) {
+      return super.add(obj);
+    } else {
+      throw new IllegalArgumentException("Error adding null to ArrayList");
+    }
+  }
 }
