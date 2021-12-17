@@ -4,11 +4,18 @@ public class SortedArrayList<T> extends NoNullArrayList {
 
   /***** Constructors *****/
 
+  public SortedArrayList() {
+    super();
+  }
+
+  public SortedArrayList(int initialCapacity) {
+    super(initialCapacity);
+  }
 
   /***** Private Methods *****/
 
 
   /***** Public Methods *****/
 
-  
+
 }
