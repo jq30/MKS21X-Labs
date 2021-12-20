@@ -17,7 +17,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   public int whereToPlace(T value) {
     //find higest index such that value is greater than the one being compared
     for (int i = 0; i < size(); i++) {
-      if (value.compareTo(get(i)) > 0) {
+      if (value.compareTo(get(i)) < 0) {
         return i;
       }
     }
