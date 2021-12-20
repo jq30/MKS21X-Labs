@@ -1,4 +1,4 @@
-public class SortedArrayList<T extends Comparable<T>> extends NoNullArrayList {
+public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList {
   /***** Fields *****/
 
 
@@ -16,12 +16,19 @@ public class SortedArrayList<T extends Comparable<T>> extends NoNullArrayList {
 
   public int whereToPlace(T value) {
     //find higest index such that value is greater than the one being compared
-    int i;
-    for (i = 0; value.compareTo(get(i)) < 0; i++) {}
-    return i;
+    for (int i = 0; i < size(); i++) {
+      if (value.compareTo(get(i)) > 0) {
+        return i;
+      }
+    }
+    return size();
   }
 
   /***** Public Methods *****/
 
 
+  /***** Main *****/
+  public static void main(String[] args) {
+
+  }
 }
