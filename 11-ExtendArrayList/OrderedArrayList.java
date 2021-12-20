@@ -1,14 +1,14 @@
-public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList {
+public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T> {
   /***** Fields *****/
 
 
   /***** Constructors *****/
 
-  public SortedArrayList() {
+  public OrderedArrayList() {
     super();
   }
 
-  public SortedArrayList(int initialCapacity) {
+  public OrderedArrayList(int initialCapacity) {
     super(initialCapacity);
   }
 
