@@ -26,6 +26,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   /***** Public Methods *****/
 
+  @Override
   public boolean add(T obj) {
     super.add(whereToPlace(obj), obj);
     return true;

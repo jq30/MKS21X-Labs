@@ -19,6 +19,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
 
   /***** Public Methods *****/
 
+  @Override
   public boolean add(T obj) throws IllegalArgumentException {
     if (!(obj == null)) {
       return super.add(obj);
@@ -27,6 +28,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     }
   }
 
+  @Override
   public void add(int index, T obj) throws IllegalArgumentException {
     if (!(obj == null)) {
       super.add(index, obj);
@@ -35,6 +37,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     }
   }
 
+  @Override
   public T set(int index, T obj) throws IllegalArgumentException {
     if (!(obj == null)) {
       return super.set(index, obj);
