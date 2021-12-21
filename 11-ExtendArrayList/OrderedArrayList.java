@@ -43,4 +43,43 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     this.add(obj);
     return replaced;
   }
+
+  public int indexOf(T obj) {
+    //edge case
+    if (size() == 0) {
+      return -1;
+    }
+
+    int start = 0;
+    int mid = size() / 2;
+    int end = size() - 1;
+
+    //hard coding because im lazy
+    if (get(end).equals(obj)) {
+      return end;
+    }
+    if (get(start).equals(obj)) {
+      return start;
+    }
+
+    while (end > start) {
+      if (get(start).equals(obj)) {
+        return end;
+      }
+      if (get(start).equals(obj)) {
+        return start;
+      }
+
+      mid = (start + end) / 2;
+      if (get(mid).equals(obj)) {
+        return mid;
+      } else if (get(mid).compareTo(obj) < 0) {
+        System.out.println("uwu");
+        start = mid + 1;
+      } else {
+        end = mid - 1;
+      }
+    }
+    return -1;
+  }
 }
