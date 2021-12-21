@@ -36,9 +36,4 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   public void add(int index, T obj) {
     this.add(obj);
   }
-
-  /***** Main *****/
-  public static void main(String[] args) {
-
-  }
 }
