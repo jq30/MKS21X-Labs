@@ -36,4 +36,11 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   public void add(int index, T obj) {
     this.add(obj);
   }
+
+  @Override
+  public T set(int index, T obj) {
+    T replaced = super.remove(index);
+    this.add(obj);
+    return replaced;
+  }
 }
