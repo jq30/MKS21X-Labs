@@ -1,14 +1,16 @@
 public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
   private int mana;
 
-  public Wizard(String Name, String aaaa; int mana) {
+  public Wizard(String Name, String aaaa, int mana) {
     super(Name);
     this.mana = mana;
   }
 
+  //does damage scaling with half of current mana
+  //restores mana inversely scaling with amount of damage dealt
   public void attack(Damageable other) {
     int damage = mana / 2;
-    int manaRestore = 100 / damage + 1;
+    int manaRestore = 30 / (damage + 1) + 1;
 
     other.applyDamage(damage);
     mana += manaRestore;
@@ -17,9 +19,10 @@ public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
     System.out.println(this.toString() + " recovered " + manaRestore + " mana!");
   }
 
+  //counsumes all mana and deals damage according to amount of mana consumed
   public void specialAttack(Damageable other) {
     if (mana > 20) {
-      int damage = other.getHP() / 2 + 5 + mana;
+      int damage = mana;
       mana = 0;
 
       other.applyDamage(damage);
