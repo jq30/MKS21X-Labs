@@ -23,6 +23,10 @@ public class GameScreen {
 
     //pl to place cursor on next row
     System.out.println();
+
+    //draw prompt on bottom
+    System.out.print(">");
+    Text.showCursor();
   }
 
   private static void drawBorder(int width, int height, int color) {
