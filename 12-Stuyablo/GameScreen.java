@@ -14,21 +14,7 @@ public class GameScreen {
     int row = 0;
     int col = 0;
 
-    //make 4 random ints
-    int[] ints = new int[4];
-    for (int i = 0; i < ints.length; i++) {
-      ints[i] = randInt(0, 99);
-    }
-
-    drawBorder(width, height, color);
-    distribute(ints, width, height, 2); //2 is row after border
-
-    //pl to place cursor on next row
-    System.out.println();
-
-    //draw prompt on bottom
-    System.out.print(">");
-    Text.showCursor();
+    screen(width, height, color);
 
     boolean run = true;
     Scanner console = new Scanner(System.in);
@@ -41,6 +27,30 @@ public class GameScreen {
         default: ; //rerandomize numbers
       }
     }
+  }
+
+  private static void screen(int width, int height, int color) {
+    int[] ints = randomize(0, 99, 4);
+
+    drawBorder(width, height, color);
+    distribute(ints, width, height, 2); //2 is row after border
+
+    //pl to place cursor on next row
+    System.out.println();
+
+    //draw prompt on bottom
+    System.out.print(">");
+    Text.showCursor();
+  }
+
+  //returns int[] of n random ints from lower to upper
+  private static int[] randomize(int lower, int upper, int n) {
+    //make 4 random ints
+    int[] ints = new int[n];
+    for (int i = 0; i < ints.length; i++) {
+      ints[i] = randInt(lower, upper);
+    }
+    return ints;
   }
 
   private static void drawBorder(int width, int height, int color) {
