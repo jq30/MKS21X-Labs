@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 public class GameScreen {
   public static void main(String[] args) {
-    //clear
-    Text.clear();
-
     //create an 30 by 80 border of color
     final int width = 80;
     final int height = 30;
@@ -34,6 +31,9 @@ public class GameScreen {
   }
 
   private static void screen(int width, int height, int color, int[] ints) {
+    //clear
+    Text.clear();
+
     drawBorder(width, height, color);
     distribute(ints, width, height, 2); //2 is row after border
 
