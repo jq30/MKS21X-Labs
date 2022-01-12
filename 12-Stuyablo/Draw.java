@@ -13,10 +13,10 @@ public class Draw {
     int col = 0;
 
     //draw border
-    drawHorizontal(0, 30, color); //top row
-    drawHorizontal(height, 30, color); //bottom row
-    drawVertical(0, 30, color); //left col
-    drawVertical(width, 30, color); //right col
+    drawHorizontal(0, width, color); //top row
+    drawHorizontal(height, width, color); //bottom row
+    drawVertical(0, height, color); //left col
+    drawVertical(width, height, color); //right col
 
     //pl to place cursor on next row
     System.out.println();
