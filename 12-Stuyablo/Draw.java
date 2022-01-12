@@ -6,7 +6,7 @@ public class Draw {
     //create an 30 by 30 border of color
     final int height = 30;
     final int width = 30;
-    final int color = Text.BLUE;
+    final int color = Text.BLUE + Text.BACKGROUND;
 
     //cursor position
     int row = 0;
@@ -26,7 +26,7 @@ public class Draw {
     int col = 0;
     for (col = 1; col <= length; col++) {
       Text.go(row, col);
-      System.out.print(Text.colorize("M", color));
+      System.out.print(Text.colorize(" ", color));
     }
   }
 
@@ -34,7 +34,7 @@ public class Draw {
     int row = 0;
     for (row = 1; row <= length; row++) {
       Text.go(row, col);
-      System.out.print(Text.colorize("M", color));
+      System.out.print(Text.colorize(" ", color));
     }
   }
 }
