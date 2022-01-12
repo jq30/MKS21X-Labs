@@ -18,14 +18,18 @@ public class GameScreen {
         case "":
           //redraw screen
           screen(width, height, color, ints);
+          break;
         case "q":
           run = false;
+          break;
         case "quit":
           run = false;
+          break;
         default:
           //rerandomize numbers and draw screen
           ints = randomize(0, 99, 4);
           screen(width, height, color, ints);
+          break;
       }
     }
   }
