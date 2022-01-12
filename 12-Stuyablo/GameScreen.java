@@ -11,7 +11,7 @@ public class GameScreen {
     final int color = Text.BLUE + Text.BACKGROUND;
 
     int[] ints = randomize(0, 99, 4);
-    screen(width, height, color);
+    screen(width, height, color, ints);
 
     boolean run = true;
     Scanner console = new Scanner(System.in);
@@ -20,14 +20,15 @@ public class GameScreen {
       switch (input) {
         case "":
           //redraw screen
-          ;
+          screen(width, height, color, ints);
         case "q":
           run = false;
         case "quit":
           run = false;
         default:
-          //rerandomize numbers
-          ;
+          //rerandomize numbers and draw screen
+          ints = randomize(0, 99, 4);
+          screen(width, height, color, ints);
       }
     }
   }
