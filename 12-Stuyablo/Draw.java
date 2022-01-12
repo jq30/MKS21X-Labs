@@ -3,9 +3,9 @@ public class Draw {
     //clear
     Text.clear();
 
-    //create an 30 by 30 border of color
+    //create an 30 by 80 border of color
     final int height = 30;
-    final int width = 30;
+    final int width = 80;
     final int color = Text.BLUE + Text.BACKGROUND;
 
     //cursor position
@@ -21,8 +21,15 @@ public class Draw {
     //make 4 random ints
     int[] ints = new int[4];
     for (int i = 0; i < ints.length; i++) {
-      ints[i] = randInt(0, 2);
-      System.out.println(ints[i]);
+      ints[i] = randInt(0, 99);
+    }
+
+    //evenly distribute these ints
+    for (int i = 0; i < ints.length; i++) {
+      int increment = (width / ints.length);
+      int offset = -(increment / 2);
+      Text.go(2, (i + 1) * increment + offset); //magic number 2 comes from it being row after border
+      System.out.print(ints[i]);
     }
 
     //pl to place cursor on next row
