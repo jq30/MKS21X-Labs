@@ -26,11 +26,14 @@ public class Draw {
 
     //evenly distribute these ints
     for (int i = 0; i < ints.length; i++) {
-      int increment = (width / ints.length);
-      int offset = -(increment / 2);
+      int increment = (width / ints.length); //spacing to evenly distribute
+      int offset = -(increment / 2); //offset to make it center-aligned
       Text.go(2, (i + 1) * increment + offset); //magic number 2 comes from it being row after border
       System.out.print(ints[i]);
     }
+
+    //place cursor at proper position
+    Text.go(height, 0);
 
     //pl to place cursor on next row
     System.out.println();
