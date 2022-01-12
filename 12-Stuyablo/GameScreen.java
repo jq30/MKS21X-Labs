@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class GameScreen {
   public static void main(String[] args) {
     //clear
@@ -27,6 +29,18 @@ public class GameScreen {
     //draw prompt on bottom
     System.out.print(">");
     Text.showCursor();
+
+    boolean run = true;
+    Scanner console = new Scanner(System.in);
+    while (run) {
+      String input = console.nextLine();
+      switch (input) {
+        case "": ; //redraw screen
+        case "q": run = false;
+        case "quit": run = false;
+        default: ; //rerandomize numbers
+      }
+    }
   }
 
   private static void drawBorder(int width, int height, int color) {
