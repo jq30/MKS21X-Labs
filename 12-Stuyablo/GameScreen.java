@@ -10,6 +10,7 @@ public class GameScreen {
     final int height = 30;
     final int color = Text.BLUE + Text.BACKGROUND;
 
+    int[] ints = randomize(0, 99, 4);
     screen(width, height, color);
 
     boolean run = true;
@@ -41,11 +42,6 @@ public class GameScreen {
     //draw prompt on bottom
     System.out.print(">");
     Text.showCursor();
-  }
-
-  private static void screen(int width, int height, int color) {
-    int[] ints = randomize(0, 99, 4);
-    screen(width, height, color, ints);
   }
 
   //returns int[] of n random ints from lower to upper
