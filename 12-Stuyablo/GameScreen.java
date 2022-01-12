@@ -10,10 +10,6 @@ public class GameScreen {
     final int height = 30;
     final int color = Text.BLUE + Text.BACKGROUND;
 
-    //cursor position
-    int row = 0;
-    int col = 0;
-
     screen(width, height, color);
 
     boolean run = true;
