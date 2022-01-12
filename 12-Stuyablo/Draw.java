@@ -18,8 +18,20 @@ public class Draw {
     drawVertical(0, height, color); //left col
     drawVertical(width, height, color); //right col
 
+    //make 4 random ints
+    int[] ints = new int[4];
+    for (int i = 0; i < ints.length; i++) {
+      ints[i] = randInt(0, 2);
+      System.out.println(ints[i]);
+    }
+
     //pl to place cursor on next row
     System.out.println();
+  }
+
+  //return random number from lower to upper inclusive
+  private static int randInt(int lower, int upper) {
+    return (int)((Math.random() * (upper - lower + 1)) + lower);
   }
 
   private static void drawHorizontal(int row, int length, int color) {
