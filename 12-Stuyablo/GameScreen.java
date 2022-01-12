@@ -17,17 +17,21 @@ public class GameScreen {
     while (run) {
       String input = console.nextLine();
       switch (input) {
-        case "": ; //redraw screen
-        case "q": run = false;
-        case "quit": run = false;
-        default: ; //rerandomize numbers
+        case "":
+          //redraw screen
+          ;
+        case "q":
+          run = false;
+        case "quit":
+          run = false;
+        default:
+          //rerandomize numbers
+          ;
       }
     }
   }
 
-  private static void screen(int width, int height, int color) {
-    int[] ints = randomize(0, 99, 4);
-
+  private static void screen(int width, int height, int color, int[] ints) {
     drawBorder(width, height, color);
     distribute(ints, width, height, 2); //2 is row after border
 
@@ -37,6 +41,11 @@ public class GameScreen {
     //draw prompt on bottom
     System.out.print(">");
     Text.showCursor();
+  }
+
+  private static void screen(int width, int height, int color) {
+    int[] ints = randomize(0, 99, 4);
+    screen(width, height, color, ints);
   }
 
   //returns int[] of n random ints from lower to upper
