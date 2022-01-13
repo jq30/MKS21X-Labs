@@ -66,6 +66,10 @@ public class StuyabloGame{
       Text.hideCursor();
       drawScreen();
 
+      //display current state of all Adventurers
+      drawParty(party,2);
+      drawParty(enemies,HEIGHT-5);
+
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
@@ -111,9 +115,7 @@ public class StuyabloGame{
 
       }
 
-      //display current state of all Adventurers
-      drawParty(party,2);
-      drawParty(enemies,HEIGHT-5);
+
 
       //Draw the prompt
       Text.reset();
