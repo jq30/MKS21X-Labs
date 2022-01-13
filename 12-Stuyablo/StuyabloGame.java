@@ -21,6 +21,7 @@ public class StuyabloGame{
 
   //Display a line of text starting at column 2 of the specified row.
   public static void drawText(String s,int startRow){
+    s = " " + s; //extra space so text doesn't touch border
     CoolPrint.print(s, startRow, 2);
   }
 
