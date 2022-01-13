@@ -94,6 +94,7 @@ public class GameScreen {
     for (int i = 0; i < ints.length; i++) {
       int increment = (width / ints.length); //spacing to evenly distribute
       int offset = -(increment / 2); //offset to make it center-aligned
+      offset -= ints[i].length() / 2;
       Text.go(y, (i + 1) * increment + offset); //y := y position to print at
       System.out.print(ints[i]);
     }
