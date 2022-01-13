@@ -1,7 +1,7 @@
 import java.io.*; //File, FileNotFoundException
 import java.util.*; //Scanner, ArrayList
 
-public class textDemo {
+public class CoolPrint {
   private static void sleep(int ms) {
     try {
       Thread.sleep(ms);
@@ -59,6 +59,25 @@ public class textDemo {
     System.out.println();
     Text.reset();
     Text.showCursor();
+  }
+
+  public static void print(String word, int row, int col) {
+    Text.go(row,col);
+    for (int i = 0; i < word.length(); i++) {
+      //repeat obfuscating 10 times
+      for (int k = 0; k < 10; k++) {
+        Text.go(row, col);
+        System.out.print(randomChar());
+        sleep(5);
+      }
+      //overwrite obfuscated character with proper
+      Text.go(row, col);
+      System.out.print(word.charAt(i));
+      sleep(10);
+
+      //move on to next col
+      col++;
+    }
   }
 
   public static void main(String[] args) {
