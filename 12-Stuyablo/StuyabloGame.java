@@ -25,7 +25,7 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    GameScreen.screen(WIDTH, HEIGHT, BORDER_COLOR);
+    GameScreen.screen(WIDTH, HEIGHT, BORDER_BACKGROUND);
   }
 
 
