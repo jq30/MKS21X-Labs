@@ -58,13 +58,6 @@ public class GameScreen {
     //draw bars separating text field from party fields
     drawHorizontal(7, width, color);
     drawHorizontal(height - 6, width, color);
-
-    //pl to place cursor on next row
-    System.out.println();
-
-    //draw prompt on bottom
-    System.out.print(">");
-    Text.showCursor();
   }
 
   //returns int[] of n random ints from lower to upper
