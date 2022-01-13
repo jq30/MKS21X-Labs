@@ -12,9 +12,11 @@ public class StuyabloGame{
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    String[] names = new String[party.size()];
+    for (int i = 0; i < party.size(); i++) {
+      names[i] = party.get(i).getName();
+    }
+    GameScreen.distribute(names, WIDTH, HEIGHT, 2); //prints on row 2
   }
 
   //Display a line of text starting at column 2 of the specified row.
