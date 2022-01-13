@@ -55,6 +55,10 @@ public class GameScreen {
 
     drawBorder(width, height, color);
 
+    //draw bars separating text field from party fields
+    drawHorizontal(7, width, color);
+    drawHorizontal(height - 6, width, color);
+
     //pl to place cursor on next row
     System.out.println();
 
