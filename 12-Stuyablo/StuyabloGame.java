@@ -47,7 +47,9 @@ public class StuyabloGame{
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    party.add(new Wizard("Duwumbleduwu", "discount dumbledore", 1000));
+    party.add(new Warrior("cat", "meow?", 20));
+    party.add(new Wizard("magic banana", "nana?", Integer.MAX_VALUE));
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Main loop
