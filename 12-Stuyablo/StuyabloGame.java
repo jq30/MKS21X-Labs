@@ -13,10 +13,13 @@ public class StuyabloGame{
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     String[] names = new String[party.size()];
+    String[] hps = new String[party.size()];
     for (int i = 0; i < party.size(); i++) {
       names[i] = party.get(i).getName();
+      hps[i] = "HP: " + party.get(i).getHP();
     }
     GameScreen.distribute(names, WIDTH, HEIGHT, startRow);
+    GameScreen.distribute(hps, WIDTH, HEIGHT, startRow + 1);
   }
 
   //Display a line of text starting at column 2 of the specified row.
