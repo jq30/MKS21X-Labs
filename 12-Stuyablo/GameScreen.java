@@ -34,7 +34,7 @@ public class GameScreen {
     }
   }
 
-  private static void screen(int width, int height, int color, int[] ints) {
+  public static void screen(int width, int height, int color, int[] ints) {
     //clear
     Text.clear();
 
@@ -50,7 +50,7 @@ public class GameScreen {
   }
 
   //returns int[] of n random ints from lower to upper
-  private static int[] randomize(int lower, int upper, int n) {
+  public static int[] randomize(int lower, int upper, int n) {
     //make 4 random ints
     int[] ints = new int[n];
     for (int i = 0; i < ints.length; i++) {
@@ -59,14 +59,14 @@ public class GameScreen {
     return ints;
   }
 
-  private static void drawBorder(int width, int height, int color) {
+  public static void drawBorder(int width, int height, int color) {
     drawHorizontal(0, width, color); //top row
     drawHorizontal(height, width, color); //bottom row
     drawVertical(0, height, color); //left col
     drawVertical(width, height, color); //right col
   }
 
-  private static void distribute(int[] ints, int width, int height, int y) {
+  public static void distribute(int[] ints, int width, int height, int y) {
     for (int i = 0; i < ints.length; i++) {
       int increment = (width / ints.length); //spacing to evenly distribute
       int offset = -(increment / 2); //offset to make it center-aligned
@@ -77,11 +77,11 @@ public class GameScreen {
   }
 
   //return random number from lower to upper inclusive
-  private static int randInt(int lower, int upper) {
+  public static int randInt(int lower, int upper) {
     return (int)((Math.random() * (upper - lower + 1)) + lower);
   }
 
-  private static void drawHorizontal(int row, int length, int color) {
+  public static void drawHorizontal(int row, int length, int color) {
     int col = 0;
     for (col = 1; col <= length; col++) {
       Text.go(row, col);
@@ -89,7 +89,7 @@ public class GameScreen {
     }
   }
 
-  private static void drawVertical(int col, int length, int color) {
+  public static void drawVertical(int col, int length, int color) {
     int row = 0;
     for (row = 1; row <= length; row++) {
       Text.go(row, col);
