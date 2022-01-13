@@ -90,13 +90,13 @@ public class GameScreen {
     Text.go(height, 0); //place cursor at proper position
   }
 
-  public static void distribute(String[] ints, int width, int height, int y) {
-    for (int i = 0; i < ints.length; i++) {
-      int increment = (width / ints.length); //spacing to evenly distribute
+  public static void distribute(String[] words, int width, int height, int y) {
+    for (int i = 0; i < words.length; i++) {
+      int increment = (width / words.length); //spacing to evenly distribute
       int offset = -(increment / 2); //offset to make it center-aligned
-      offset -= ints[i].length() / 2;
+      offset -= words[i].length() / 2; //offset it by half of the word it is aligned by center of word
       Text.go(y, (i + 1) * increment + offset); //y := y position to print at
-      System.out.print(ints[i]);
+      System.out.print(words[i]);
     }
     Text.go(height, 0); //place cursor at proper position
   }
