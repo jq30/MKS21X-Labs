@@ -68,12 +68,12 @@ public class CoolPrint {
       for (int k = 0; k < 10; k++) {
         Text.go(row, col);
         System.out.print(randomChar());
-        sleep(5);
+        sleep(2);
       }
       //overwrite obfuscated character with proper
       Text.go(row, col);
       System.out.print(word.charAt(i));
-      sleep(10);
+      sleep(5);
 
       //move on to next col
       col++;
