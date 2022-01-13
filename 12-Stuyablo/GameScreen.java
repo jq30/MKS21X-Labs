@@ -49,6 +49,20 @@ public class GameScreen {
     Text.showCursor();
   }
 
+  public static void screen(int width, int height, int color) {
+    //clear
+    Text.clear();
+
+    drawBorder(width, height, color);
+
+    //pl to place cursor on next row
+    System.out.println();
+
+    //draw prompt on bottom
+    System.out.print(">");
+    Text.showCursor();
+  }
+
   //returns int[] of n random ints from lower to upper
   public static int[] randomize(int lower, int upper, int n) {
     //make 4 random ints
