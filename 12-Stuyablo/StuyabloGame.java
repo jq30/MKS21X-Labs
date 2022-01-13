@@ -16,7 +16,7 @@ public class StuyabloGame{
     for (int i = 0; i < party.size(); i++) {
       names[i] = party.get(i).getName();
     }
-    GameScreen.distribute(names, WIDTH, HEIGHT, 2); //prints on row 2
+    GameScreen.distribute(names, WIDTH, HEIGHT, startRow);
   }
 
   //Display a line of text starting at column 2 of the specified row.
@@ -40,7 +40,8 @@ public class StuyabloGame{
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    enemies.add(new Warrior("Principal Yu", "YOU ARE SUSPENDED!!!1!!11!!111", 345));
+    enemies.add(new Wizard("Mayor Adams", "NO REGENTS WEEK FOR YOU!!!!!!!!!", 0));
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
