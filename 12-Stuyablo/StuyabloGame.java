@@ -94,7 +94,7 @@ public class StuyabloGame{
 
         if(whichPlayer < party.size()){
           drawText("Enter command for "+party.get(whichPlayer)+
-                   ": attack/special/quit",HEIGHT/2 - 2);
+                   ": attack/special/quit",HEIGHT/2 + 2);
         }else{
           drawText("press enter to see monster's turn",HEIGHT/2);
           partyTurn = false;
@@ -113,7 +113,7 @@ public class StuyabloGame{
         partyTurn=true;
         whichPlayer = 0;
         //display which player's turn is next and prompt for action.
-        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
+        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2 + 2);
 
         //end the turn.
         turn++;
