@@ -37,7 +37,7 @@ public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
   ///////
 
   public int getmaxHP() {
-    return this.maxHP;
+    return this.getmaxHP();
   }
 
   public int getMana() {
@@ -48,11 +48,15 @@ public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
     mana = n;
   }
 
+  public String getSpecialName() {
+    return "Mana";
+  }
+
   public int getSpecial() {
-    return this.getSpecial();
+    return mana;
   }
 
   public int getSpecialMax() {
-    return this.getSpecialMax();
+    return 200;
   }
 }
