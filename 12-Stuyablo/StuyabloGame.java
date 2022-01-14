@@ -14,12 +14,17 @@ public class StuyabloGame{
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     String[] names = new String[party.size()];
     String[] hps = new String[party.size()];
+    String[] energies = new String[party.size()];
     for (int i = 0; i < party.size(); i++) {
-      names[i] = party.get(i).getName();
-      hps[i] = "HP: " + party.get(i).getHP();
+      Adventurer guy = party.get(i);
+
+      names[i] = guy.getName();
+      hps[i] = "HP: " + guy.getHP() + "/" + guy.getmaxHP();
+      energies[i] = guy.getSpecialName() + ": " + guy.getSpecial() + "/" + guy.getSpecialMax();
     }
     GameScreen.distribute(names, WIDTH, HEIGHT, startRow);
     GameScreen.distribute(hps, WIDTH, HEIGHT, startRow + 1);
+    GameScreen.distribute(energies, WIDTH, HEIGHT, startRow + 2);
   }
 
   //Display a line of text starting at column 2 of the specified row.
