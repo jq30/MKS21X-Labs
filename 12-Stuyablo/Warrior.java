@@ -68,8 +68,4 @@ public class Warrior extends Adventurer {
     public int getSpecialMax() {
       return 50;
     }
-
-    public int getmaxHP() {
-      return this.getmaxHP();
-    }
 }
