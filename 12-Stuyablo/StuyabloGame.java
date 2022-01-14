@@ -78,15 +78,15 @@ public class StuyabloGame{
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
-        if(input.equals("attack")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        if(input.equals("") || input.equals("a") || input.equals("attack")){
+          Adventurer attacker = party.get(whichPlayer);
+          Adventurer target = enemies.get(0);
+          attacker.attack(target);
         }
-        else if(input.equals("special")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        else if(input.equals("s") || input.equals("special")){
+          Adventurer attacker = party.get(whichPlayer);
+          Adventurer target = enemies.get(0);
+          attacker.specialAttack(target);
         }
         whichPlayer++;
 
