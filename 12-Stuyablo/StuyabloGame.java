@@ -88,6 +88,9 @@ public class StuyabloGame{
           Adventurer target = enemies.get(0);
           drawText(attacker.specialAttack(target), HEIGHT/2);
         }
+        //display current state of all Adventurers
+        drawParty(party,2);
+        drawParty(enemies,HEIGHT-5);
         whichPlayer++;
 
 
