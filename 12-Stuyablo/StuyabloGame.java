@@ -85,7 +85,7 @@ public class StuyabloGame{
         }
         else if(input.equals("s") || input.equals("special")){
           Adventurer attacker = party.get(whichPlayer);
-          Adventurer target = enemies.get(0);
+          Adventurer target = enemies.get(GameScreen.randInt(0, enemies.size()-1)); //pick random member of enemy team
           drawText(attacker.specialAttack(target), HEIGHT/2);
         }
         //display current state of all Adventurers
@@ -108,10 +108,12 @@ public class StuyabloGame{
         if(turn > 0){
           //Enemy action choices go here!
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          Adventurer attacker = enemies.get(GameScreen.randInt(0, enemies.size()-1)); //pick random member of enemy team
-          Adventurer target = party.get(GameScreen.randInt(0, party.size()-1));
+          for (int i = 0; i < enemies.size(); i++) {
+            Adventurer attacker = enemies.get(i);
+            Adventurer target = party.get(GameScreen.randInt(0, party.size()-1)); //pick random member of party
 
-          drawText(attacker.attack(target), HEIGHT/2);
+            drawText(attacker.attack(target), HEIGHT/2);
+          }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
