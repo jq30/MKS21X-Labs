@@ -99,7 +99,7 @@ public class StuyabloGame{
           drawText("Enter command for "+party.get(whichPlayer)+
                    ": attack/special/quit",HEIGHT/2 + 1);
         }else{
-          drawText("press enter to see monster's turn",HEIGHT/2 + 1);
+          drawText("Press enter to see monster's turn",HEIGHT/2 + 1);
           partyTurn = false;
         }
       }else{
@@ -108,7 +108,10 @@ public class StuyabloGame{
         if(turn > 0){
           //Enemy action choices go here!
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          Adventurer attacker = enemies.get(GameScreen.randInt(0, enemies.size()-1)); //pick random member of enemy team
+          Adventurer target = party.get(GameScreen.randInt(0, party.size()-1));
+
+          drawText(attacker.attack(target), HEIGHT/2);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
@@ -116,7 +119,7 @@ public class StuyabloGame{
         partyTurn=true;
         whichPlayer = 0;
         //display which player's turn is next and prompt for action.
-        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2 + 2);
+        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2 + 1);
 
         //end the turn.
         turn++;
