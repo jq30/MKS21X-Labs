@@ -81,12 +81,12 @@ public class StuyabloGame{
         if(input.equals("") || input.equals("a") || input.equals("attack")){
           Adventurer attacker = party.get(whichPlayer);
           Adventurer target = enemies.get(0);
-          attacker.attack(target);
+          drawText(attacker.attack(target), HEIGHT/2);
         }
         else if(input.equals("s") || input.equals("special")){
           Adventurer attacker = party.get(whichPlayer);
           Adventurer target = enemies.get(0);
-          attacker.specialAttack(target);
+          drawText(attacker.specialAttack(target), HEIGHT/2);
         }
         whichPlayer++;
 
@@ -94,9 +94,9 @@ public class StuyabloGame{
 
         if(whichPlayer < party.size()){
           drawText("Enter command for "+party.get(whichPlayer)+
-                   ": attack/special/quit",HEIGHT/2 + 2);
+                   ": attack/special/quit",HEIGHT/2 + 1);
         }else{
-          drawText("press enter to see monster's turn",HEIGHT/2);
+          drawText("press enter to see monster's turn",HEIGHT/2 + 1);
           partyTurn = false;
         }
       }else{
