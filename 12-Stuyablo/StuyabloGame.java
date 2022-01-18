@@ -12,7 +12,7 @@ public class StuyabloGame{
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
-    //get the names, hp, specials of party in question as three String[]
+    //store what to print as three String[]
     String[] names = new String[party.size()];
     String[] hps = new String[party.size()];
     String[] energies = new String[party.size()];
@@ -20,13 +20,21 @@ public class StuyabloGame{
       Adventurer guy = party.get(i);
 
       names[i] = guy.getName();
-      hps[i] = "HP: " + guy.getHP() + "/" + guy.getmaxHP();
       energies[i] = guy.getSpecialName() + ": " + guy.getSpecial() + "/" + guy.getSpecialMax();
+
+      //color hp accordingly
+      String hp = "HP: " + guy.getHP() + "/" + guy.getmaxHP();
+      if ((double)guy.getHP() / guy.getmaxHP() < 0.25) {
+        hp = Text.colorize(hp, Text.RED);
+      } else if ((double)guy.getHP() / guy.getmaxHP() > 0.75) {
+        hp = Text.colorize(hp, Text.GREEN);
+      }
+      hps[i] = hp;
     }
 
     //use distribute method to print on screen
     GameScreen.distribute(names, WIDTH, HEIGHT, startRow);
-    GameScreen.distribute(hps, WIDTH, HEIGHT, startRow + 1);
+    GameScreen.distribute(hps, WIDTH, HEIGHT, startRow + 1, 10);
     GameScreen.distribute(energies, WIDTH, HEIGHT, startRow + 2);
 
     //this method isnt very efficient but isnt terribly slow to the point of impacting performance either
