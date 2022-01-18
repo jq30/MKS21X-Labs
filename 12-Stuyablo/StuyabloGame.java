@@ -28,6 +28,8 @@ public class StuyabloGame{
         hp = Text.colorize(hp, Text.RED);
       } else if ((double)guy.getHP() / guy.getmaxHP() > 0.75) {
         hp = Text.colorize(hp, Text.GREEN);
+      } else {
+        hp = Text.colorize(hp, Text.YELLOW);
       }
       hps[i] = hp;
     }
@@ -133,6 +135,10 @@ public class StuyabloGame{
             Adventurer target = party.get(GameScreen.randInt(0, party.size()-1)); //pick random member of party
 
             drawText(attacker.attack(target), HEIGHT/2);
+
+            //display current state of all Adventurers
+            drawParty(party,2);
+            drawParty(enemies,HEIGHT-5);
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
