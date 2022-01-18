@@ -100,7 +100,7 @@ public class StuyabloGame{
         //Process user input:
         if(input.equals("") || input.equals("a") || input.equals("attack")){
           Adventurer attacker = party.get(whichPlayer);
-          Adventurer target = enemies.get(0);
+          Adventurer target = enemies.get(GameScreen.randInt(0, enemies.size()-1));
           drawText(attacker.attack(target), HEIGHT/2);
         }
         else if(input.equals("s") || input.equals("special")){
