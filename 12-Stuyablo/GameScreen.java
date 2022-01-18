@@ -98,6 +98,17 @@ public class GameScreen {
     Text.go(height, 0); //place cursor at proper position
   }
 
+  public static void distribute(String[] words, int width, int height, int y, int ESCoffset) {
+    for (int i = 0; i < words.length; i++) {
+      int increment = (width / words.length); //spacing to evenly distribute
+      int offset = -(increment / 2); //offset to make it center-aligned
+      offset -= (words[i].length() - ESCoffset) / 2; //offset it by half of the word it is aligned by center of word
+      Text.go(y, (i + 1) * increment + offset); //y := y position to print at
+      System.out.print(words[i]);
+    }
+    Text.go(height, 0); //place cursor at proper position
+  }
+
   //return random number from lower to upper inclusive
   public static int randInt(int lower, int upper) {
     return (int)((Math.random() * (upper - lower + 1)) + lower);
