@@ -1,17 +1,23 @@
 public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
+  private int maxMana;
   private int mana;
   private String flavor;
 
   public Wizard(String Name, String flavor, int mana) {
-    super(Name);
+    this(Name, flavor, 100, 100, 10);
+  }
+
+  public Wizard(String Name, String flavor, int mana, int maxMana, int maxHP) {
+    super(Name, maxHP, maxHP);
+    this.maxMana = maxMana;
     this.mana = mana;
     this.flavor = flavor;
   }
 
-  //does damage scaling with half of current mana
+  //does damage scaling with log of current mana
   //restores mana inversely scaling with amount of damage dealt
   public String attack(Damageable other) {
-    int damage = mana / 2;
+    int damage = (int)Math.log(mana) + 1;
     int manaRestore = 30 / (damage + 1) + 1;
 
     other.applyDamage(damage);
@@ -53,6 +59,6 @@ public class Wizard/* (ACTUALLY A MAGE) */ extends Adventurer {
   }
 
   public int getSpecialMax() {
-    return 200;
+    return maxMana;
   }
 }

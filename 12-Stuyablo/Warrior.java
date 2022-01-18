@@ -2,16 +2,21 @@ public class Warrior extends Adventurer {
     private int  rage;
     private String warcry;
 
+    //maxHP defaults to 10
     public Warrior(){
 	     this("Magnus");
     }
 
     public Warrior(String name){
-	     this(name,"Valhalllaaaaa!!", 18);
+	     this(name,"Valhalllaaaaa!!", 10);
     }
 
     public Warrior(String name, String warcry, int rage){
-      super(name,30+(int)(Math.random()*10));
+      this(name, warcry, rage, 10, 10);
+    }
+
+    public Warrior(String name, String warcry, int rage, int maxRage, int maxHP) {
+      super(name, maxHP, maxHP);
       setWarcry(warcry);
       setRage(rage);
     }
