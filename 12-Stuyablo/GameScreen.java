@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class GameScreen {
   public static void main(String[] args) {
+    fill(1, 1, 30, 30, Text.GREEN);
+  }
+
+  public static void _main(String[] args) {
     //create an 30 by 80 border of color
     final int width = 80;
     final int height = 30;
@@ -53,6 +57,7 @@ public class GameScreen {
     //clear
     Text.clear();
 
+    fill(1, 1, height, width, Text.BLACK);
     drawBorder(width, height, color);
 
     //draw bars separating text field from party fields
@@ -127,6 +132,15 @@ public class GameScreen {
     for (row = 1; row <= length; row++) {
       Text.go(row, col);
       System.out.print(Text.colorize(" ", color));
+    }
+  }
+
+  public static void fill(int startRow, int startCol, int endRow, int endCol, int color) {
+    for (int row = startRow; row < endRow; row++) {
+      for (int col = startRow; col < endCol; col++) {
+        Text.go(row, col);
+        System.out.print(Text.colorize(" ", color + Text.BACKGROUND));
+      }
     }
   }
 }
