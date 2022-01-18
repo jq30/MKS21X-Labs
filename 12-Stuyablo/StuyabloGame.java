@@ -1,17 +1,18 @@
 import java.util.*;
 public class StuyabloGame{
+  /***** FIELDS/SCREEN SPECIFICATIONS *****/
+
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
-  public static void main(String[] args) {
-    run();
-  }
+  /***** DRAW METHODS *****/
 
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
+    //get the names, hp, specials of party in question as three String[]
     String[] names = new String[party.size()];
     String[] hps = new String[party.size()];
     String[] energies = new String[party.size()];
@@ -22,9 +23,13 @@ public class StuyabloGame{
       hps[i] = "HP: " + guy.getHP() + "/" + guy.getmaxHP();
       energies[i] = guy.getSpecialName() + ": " + guy.getSpecial() + "/" + guy.getSpecialMax();
     }
+
+    //use distribute method to print on screen
     GameScreen.distribute(names, WIDTH, HEIGHT, startRow);
     GameScreen.distribute(hps, WIDTH, HEIGHT, startRow + 1);
     GameScreen.distribute(energies, WIDTH, HEIGHT, startRow + 2);
+
+    //this method isnt very efficient but isnt terribly slow to the point of impacting performance either
   }
 
   //Display a line of text starting at column 2 of the specified row.
@@ -37,6 +42,8 @@ public class StuyabloGame{
     GameScreen.screen(WIDTH, HEIGHT, BORDER_BACKGROUND);
   }
 
+
+ /***** MAIN *****/
 
   public static void run(){
     //Clear and initialize
@@ -130,10 +137,7 @@ public class StuyabloGame{
 
         //end the turn.
         turn++;
-
       }
-
-
 
       //Draw the prompt
       Text.reset();
@@ -150,7 +154,7 @@ public class StuyabloGame{
     Text.go(32,1);
   }
 
-
-
-
+  public static void main(String[] args) {
+    run();
+  }
 }
