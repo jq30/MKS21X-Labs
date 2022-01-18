@@ -32,6 +32,10 @@ public class StuyabloGame{
         hp = Text.colorize(hp, Text.YELLOW);
       }
       hps[i] = hp;
+
+      //padding. crude but effecitivsjpga
+      energies[i] = "  " + energies[i] + "  ";
+      hps[i] = "  " + hps[i] + "  ";
     }
 
     //use distribute method to print on screen

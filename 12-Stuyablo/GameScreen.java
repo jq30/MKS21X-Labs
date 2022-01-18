@@ -57,7 +57,7 @@ public class GameScreen {
     //clear
     Text.clear();
 
-    fill(1, 1, height, width, Text.BLACK);
+    //fill(1, 1, height, width, Text.BLACK);
     drawBorder(width, height, color);
 
     //draw bars separating text field from party fields
