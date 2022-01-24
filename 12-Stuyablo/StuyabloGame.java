@@ -80,7 +80,7 @@ public class StuyabloGame{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     party.add(new Wizard("Duwumbleduwu", "discount dumbledore", 100, 100, 1000));
     party.add(new Warrior("cat", "meow?", 20, 30, 400));
-    party.add(new Wizard("magic banana", "nana?", Integer.MAX_VALUE, Integer.MAX_VALUE, 10));
+    party.add(new Wizard("magic banana", "nana?", Integer.MAX_VALUE / 10, Integer.MAX_VALUE / 10, 10));
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Main loop
